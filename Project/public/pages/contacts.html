@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>-G-O-O-F- / CONTACT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="../../assets/css/icomoon.css" rel="stylesheet">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="../../assets/css/contacts.css" rel="stylesheet">
+     <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span>v</span>
+                    </button>
+                    <a class="navbar-brand" href="#">&lt;-G---O---O---F-&gt;</a>
+                </div>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav nav-options">
+                        <li><a class="nav-link" href="#">Bag(0)</a></li>
+                        <li><a class="nav-link" href="#">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="row">
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav nav-menu">
+                        <li id="first-item"><a class="nav-link" href="#">New Arrivals</a></li>
+                        <li><a class="nav-link" href="#">Collections</a></li>
+                        <li><a class="nav-link" href="#">Shop Men</a></li>
+                        <li><a class="nav-link" href="#">Shop Women</a></li>
+                        <li><a class="nav-link" href="#">Gallery</a></li>
+                        <li><a class="nav-link" href="#">Contact</a></li>
+                        <li id="last-item"><a class="nav-link" href="#">About</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container-fluid" >
+
+        <div class="col-md-12-sm-12" ><h1>SUPPORT </h1></div>
+        <hr>
+        <div class="email-list">
+            <div class="col-md-3 col-sm-3">
+                <a href="#">
+                    <img src="../../assets/img/contacts/facebook.png" alt="fb">
+                    <p>FACEBOOK: info@facebook.com</p>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                <a href="#">
+                    <img src="../../assets/img/contacts/insta.png" alt="insta">
+                    <p>INSTAGRAM: support@instagram.com. </p>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+                <a href="#">
+                    <img src="../../assets/img/contacts/twitter.jpg" alt="twitter">
+                    <p>TWITTER: @Support</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <a href="#">
+                    <img src="../../assets/img/contacts/google.png" alt="google">
+                    <p>GOOGLE+: 123@google.com</p>
+                </a>
+            </div>
+        </div>  
+        <hr>
+
+        <div class="col-md-12 col-sm-12"><h1>LOCATION</h1></div>
+        <hr>
+        <div id="map"></div>
+        <script>
+            function initMap() { 
+                var uluru = {lat: 10.811140, lng: 106.674074};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 12,
+                    center: uluru,
+                    styles:[
+                    {"featureType": "administrative","elementType": "all","stylers": [{"visibility": "simplified"}]},
+                    {"featureType": "landscape","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#fcfcfc"}]},
+                    {"featureType": "poi","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#fcfcfc"}]},
+                    {"featureType": "road.highway","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#dddddd"}]},
+                    {"featureType": "road.arterial","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#dddddd"}]},
+                    {"featureType": "road.local","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#eeeeee"}]},
+                    {"featureType": "water","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#dddddd"}]}
+                    ]
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDPcGTsy2X9bpJtOZGoBPWD5kQHA-_Ljw&callback=initMap">
+        </script>
+        
+    </div>
+</body>
+
+</html> 
