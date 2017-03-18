@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../../assets/css/icomoon.css" rel="stylesheet">
     <link href="../../assets/css/style.css" rel="stylesheet">
     <link href="../../assets/css/contacts.css" rel="stylesheet">
@@ -59,14 +60,17 @@
     
     <div class="container-fluid" >
 
-        <div class="col-md-12-sm-12" ></div>
+        <div id = "info" class="col-md-12 col-sm-12" >
        	<h1>-G-O-O-F-</h1>
        	<p>Hotline: 1234566789</p>
        	<p>Address:Nguyễn Hữu Cảnh, Quận Bình Thạnh, TP. HCM</p>
-       	<a  href="#"><img class = "image" src="../../assets/img/contacts/facebook.png" alt="fb"></a> 
-       	<a  href="#"><img class = "image" src="../../assets/img/contacts/google.png" alt="g"></a>
-       	<a  href="#"><img class = "image" src="../../assets/img/contacts/insta.png" alt="insta"> </a>
-       	<a  href="#"><img class = "image" src="../../assets/img/contacts/twitter.jpg" alt="twitter"></a>
+
+       	<a  href="#"><i class="fa fa-google-plus-square" style="font-size:1em;"></i></a> 
+        <a  href="#"><i class="fa fa-facebook-official" style="font-size:1em;"></i></a> 
+        <a  href="#"><i class="fa fa-instagram" style="font-size:1em;"></i></a> 
+        <a  href="#"><i class="fa fa-twitter-square" style="font-size:1em;"></i></a> 
+       	
+        </div>
 
         <div class="col-md-12 col-sm-12"></div>
         <div id="map"></div>
@@ -74,18 +78,22 @@
             function initMap() { 
                 var uluru = {lat: 10.811140, lng: 106.674074};
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 12,
+                    zoom: 17,
                     center: uluru,
                     styles:[
-                    {"featureType": "administrative","elementType": "all","stylers": [{"visibility": "simplified"}]},
-                    {"featureType": "landscape","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#fcfcfc"}]},
-                    {"featureType": "poi","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#fcfcfc"}]},
-                    {"featureType": "road.highway","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#dddddd"}]},
-                    {"featureType": "road.arterial","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#dddddd"}]},
-                    {"featureType": "road.local","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#eeeeee"}]},
-                    {"featureType": "water","elementType": "geometry","stylers": [{"visibility": "simplified"},{"color": "#dddddd"}]}
-                    ]
-                });
+                    {"featureType": "administrative","elementType": "all","stylers": [{"saturation": "-100"}]},
+                    {"featureType": "administrative.province","elementType": "all","stylers": [{"visibility": "off"}]},
+                    {"featureType": "landscape","elementType": "all","stylers": [{"saturation": -100},{"lightness": 65},{"visibility": "on"}]},
+                    {"featureType": "poi","elementType": "all","stylers": [{"saturation": -100},{"lightness": "50"},
+                    {"visibility": "simplified"}]},
+                    {"featureType": "road","elementType": "all","stylers": [{"saturation": "-100"}]}, 
+                    {"featureType": "road.highway","elementType": "all","stylers": [{"visibility": "simplified"}]},
+                    {"featureType": "road.arterial","elementType": "all","stylers": [{"lightness": "30"}]},
+                    {"featureType": "road.local","elementType": "all","stylers": [{"lightness": "40"}]},
+                    {"featureType": "transit","elementType": "all","stylers": [{"saturation": -100},{"visibility": "simplified"}]},
+                    {"featureType": "water","elementType": "geometry","stylers": [{"hue": "#ffff00"},{"lightness": -25},{"saturation": -97}]},
+                    {"featureType": "water","elementType": "labels","stylers": [{"lightness": -25},{"saturation": -100}]}]
+                    });
                 var marker = new google.maps.Marker({
                     position: uluru,
                     map: map
