@@ -349,3 +349,12 @@ li {
 .pbm{
     padding-bottom: 12px;
 }
+
+.b-sociablelabsBanner {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+img {
+    vertical-align: middle;
+}
