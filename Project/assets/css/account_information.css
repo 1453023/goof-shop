@@ -85,12 +85,15 @@ body {
 
 
 
-
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
 
 #content{
   margin: 0 auto;
   position: relative;
-  width: 996px;
   zoom: 1;
 }
 
@@ -99,13 +102,11 @@ div{
 }
 
 .l-hasSidebar {
-  width: 996px;
   margin: 0 auto;
 }
 
 .l-sidebar {
     float: left;
-    width: 203px;
 }
 
 .box-bgcolor {
@@ -164,7 +165,6 @@ li {
 
 .l-hasSidebar .l-main {
     float: right;
-    width: 786px;
     position: relative;
 }
 
@@ -251,7 +251,6 @@ li {
 }
 
 .b-account__infoName {
-    width: 746px;
     zoom:1;
 }
 
@@ -267,12 +266,10 @@ li {
 }
 
 .b-account__info {
-    width: 700px;
     zoom: 1;
 }
 
 .b-account__addressHeadContent {
-    width: 550px;
 }
 
 .lfloat {
@@ -288,7 +285,6 @@ li {
 }
 
 .b-account__addressHeadContent {
-    width: 746px;
 }
 
 .b-account__addressType {
@@ -301,7 +297,6 @@ li {
 }
 
 .b-account__addressContent {
-    width: 746px;
 }
 
 .mtm{
