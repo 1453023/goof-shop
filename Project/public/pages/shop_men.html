@@ -9,32 +9,45 @@
     <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.css">
     <link href="../../assets/css/icomoon.css" rel="stylesheet">
     <link href="../../assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
+    <nav class="navbar" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">G O O F</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <input type="submit" value="&#xf002;" class="search-btn fa ib-m">
+                <div class="search-slide ib-m">
+                    <input type="text" placeholder="Enter your search" class="ib-m">
+                    <div class="search-close ib-m"><i class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+            </li>
+            <li><a href="#">Bag (0)</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <!-- /.navbar-collapse -->
+    </nav>
 
     <div id="goof-shop" class="container-fluid">
         <div class="col-md-2 col-sm-2 visible-lg visible-md visible-sm">
             <div class="navToggle">
-                <div class="menu">MENU<span class="icon"></span></div>
+                <div class="menu-btn">MENU<span class="icon"></span></div>
             </div>
             <div id="menu">
                 <ul>
-                    <li>Home</li>
-                    <li>Lookbook</li>
-                    <li>Contacts</li>
-                    <li>About</li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">About</a></li>
                 </ul>
             </div>
             <div id="sidebar">
-                <h4>Filters</h4>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <button type="submit" id="search-btn"><i class="icon-search2"></i></button>
-                </div>
                 <b>Genders</b>
                 <ul class="sidebar-nav">
                     <li class="active"><a href="#">Men</a></li>
@@ -384,11 +397,27 @@
                 </div>
             </div>-->
         </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-md-8 col-sm-8">
+                <p class="text-center">Copyright &copy; 14CLC-Web05-Goof 2017 / Tống Hữu Lộc - Lại Triệu - Lê Thanh Tuấn</p>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <ul class="social-links">
+                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
-        <script src="../../assets/js/jquery-3.1.1.min.js"></script>
-        <script src="../../assets/js/owl.carousel.min.js"></script>
-        <script src="../../assets/js/bootstrap.min.js"></script>
-        <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/owl.carousel.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 
 </html>

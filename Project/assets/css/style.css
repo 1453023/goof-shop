@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
+@import url("https://fonts.googleapis.com/css?family=Rock+Salt");
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -40,12 +40,13 @@ a {
   display: block;
   margin: 0 auto;
   width: 370px;
-  height: 70px;
+  height: 90px;
   line-height: 94px;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Rock Salt', cursive;
   font-size: 3em;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  letter-spacing: 0.3em; }
   .brand-name:after {
     content: '';
     width: 5px;
@@ -100,7 +101,7 @@ a {
   max-width: 1080px;
   height: 350px;
   overflow: hidden;
-  margin: 40px auto; }
+  margin: 40px auto 70px; }
   .accordion ul {
     width: 100%;
     display: table;
@@ -192,8 +193,88 @@ a {
       width: 100%;
       -webkit-transition: none;
       transition: none; } }
+.navbar {
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background: #fff;
+  -webkit-transition: -webkit-transform 0.7s .3s ease;
+  -moz-transition: -moz-transform 0.7s .3s ease;
+  -ms-transition: -ms-transform 0.7s .3s ease;
+  transition: transform 0.7s .3s ease;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px); }
+  .navbar.hide-nav-bar {
+    -webkit-transform: translate(0, -100%);
+    -moz-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    transform: translate(0, -100%);
+    -webkit-backface-visibility: hidden; }
+  .navbar .navbar-brand {
+    font-family: 'Rock Salt', cursive;
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3em; }
+    .navbar .navbar-brand:hover, .navbar .navbar-brand:visited, .navbar .navbar-brand:focus {
+      color: #222;
+      text-decoration: none; }
+  .navbar .navbar-right {
+    margin-right: 0; }
+    .navbar .navbar-right li a:hover, .navbar .navbar-right li a:visited, .navbar .navbar-right li a:focus {
+      text-decoration: underline;
+      color: #222;
+      background: transparent; }
+    .navbar .navbar-right li:first-child {
+      padding: 0 15px; }
+      .navbar .navbar-right li:first-child:before {
+        content: '';
+        width: 1px;
+        height: 50%;
+        position: absolute;
+        top: 25%;
+        right: 0%;
+        background: #222; }
+    .navbar .navbar-right li input[type=submit] {
+      vertical-align: middle;
+      width: 1.375em;
+      height: 1.375em;
+      border: none;
+      outline: none;
+      background: none;
+      transition: opacity 100ms ease-in-out; }
+      .navbar .navbar-right li input[type=submit]:hover {
+        opacity: .5; }
+    .navbar .navbar-right li input[type=text] {
+      width: 14em;
+      height: 2.5em;
+      padding: 0 .375em;
+      border: none;
+      border-bottom: 1px solid #222;
+      margin-left: .1875em;
+      background: inherit;
+      transition: border-color 100ms ease-in-out; }
+      .navbar .navbar-right li input[type=text]:focus {
+        border-bottom-color: inherit;
+        outline: none; }
+    .navbar .navbar-right .ib-m {
+      display: inline-block;
+      vertical-align: middle; }
+    .navbar .navbar-right .search-slide {
+      width: 0;
+      height: 50px;
+      overflow: hidden; }
+    .navbar .navbar-right .search-close {
+      text-align: center;
+      cursor: pointer;
+      transition: opacity 100ms ease-in-out; }
+      .navbar .navbar-right .search-close:hover {
+        opacity: .5; }
+
 #goof-shop {
-  padding-top: 180px;
+  padding-top: 120px;
   padding-bottom: 200px; }
   #goof-shop .product-block img {
     display: block;
@@ -216,12 +297,13 @@ a {
         font-weight: bold;
         color: #555; }
 
-.menu {
+.menu-btn {
   display: table-cell;
   vertical-align: middle;
   right: 0px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: normal;
+  letter-spacing: 0.1em;
   color: #fff; }
 
 .navToggle {
@@ -236,7 +318,6 @@ a {
     margin: 0 auto;
     position: absolute;
     top: 14px;
-    right: 85px;
     width: 30px;
     height: 1px;
     background-color: #fff;
@@ -291,17 +372,22 @@ a {
     font-size: 20px;
     font-weight: 100;
     text-transform: uppercase; }
-  #menu li:first-child {
-    margin-top: 0; }
   #menu li {
     margin: 15px 0;
     padding: 5px 0;
     cursor: pointer;
     letter-spacing: 0.38em;
     text-decoration: none;
-    -webkit-transition: all 0.25s; }
-  #menu li:hover {
-    text-decoration: underline; }
+    -webkit-transition: all 0.5s; }
+    #menu li:hover {
+      text-decoration: underline; }
+    #menu li:first-child {
+      margin-top: 0; }
+    #menu li a:hover,
+    #menu li a:visited,
+    #menu li a:focus {
+      color: #222;
+      text-decoration: none; }
   #menu.active {
     height: 215px;
     border-bottom: 1px solid #222; }
@@ -332,18 +418,16 @@ a {
     #sidebar .sidebar-nav .active > a {
       color: #000; }
 
-#search-btn {
-  display: block;
-  margin-top: -34px;
-  float: right;
-  font-size: 30px;
-  border: 0;
-  filter: alpha(opacity=65);
-  opacity: 0.5;
-  background: transparent; }
-  #search-btn:hover {
-    filter: alpha(opacity=90);
-    opacity: 1; }
+footer p {
+  line-height: 40px; }
+footer .social-links {
+  list-style: none;
+  text-align: center; }
+  footer .social-links li {
+    display: inline-block;
+    padding: 0 10px; }
+    footer .social-links li a {
+      font-size: 1.6em; }
 
 @-moz-keyframes comets {
   0% {

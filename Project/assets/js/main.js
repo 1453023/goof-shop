@@ -31,6 +31,36 @@ $(function() {
         overlay.toggleClass('hidden');
     });
 
+    // navbar scroll down to hide
+    $('html').on('DOMMouseScroll mousewheel', function(e) {
+        if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
+            //scroll down
+            console.log('Down');
+            $(".navbar").addClass("hide-nav-bar");
+        } else {
+            //scroll up
+            console.log('Up');
+            $(".navbar").removeClass("hide-nav-bar");
+        }
+        //prevent page fom scrolling
+        //return false;
+    });
+
+    // search btn slide toggle
+    var sliBtn = '.search-btn',
+        sliCont = '.search-slide',
+        sliTxt = '.search-slide input[type=text]',
+        sliDis = '.search-close',
+        sliSpd = 300;
+
+    $(sliBtn).click(function() {
+        $(sliCont).animate({ 'width': '15.5625em' }, sliSpd);
+        $(sliTxt).focus();
+    });
+    $(sliDis).click(function() {
+        $(sliCont).animate({ 'width': 0 }, sliSpd);
+    });
+
     // menu sidebar click toggle
     $(".navToggle").on("click", function() {
         $(this).toggleClass("open");
