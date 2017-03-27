@@ -31,9 +31,16 @@ $(function() {
         overlay.toggleClass('hidden');
     });
 
+    // menu sidebar click toggle
+    $(".navToggle").on("click", function() {
+        $(this).toggleClass("open");
+        $("#menu").toggleClass("active");
+        $("#sidebar").toggle(200, "linear");
+    })
+
+    //sort filter menu
     var $typeList = $('#filter-type'),
         $typeListItem = $typeList.children('li');
-    console.log($typeListItem);
 
     $typeListItem.sort(function(a, b) {
         var an = a.innerText,
@@ -47,7 +54,24 @@ $(function() {
         }
         return 0;
     });
-    console.log($typeListItem);
 
     $typeListItem.detach().appendTo($typeList);
+
+    // typing animation
+    (function($) {
+        $.fn.writeText = function(content) {
+            var contentArray = content.split(""),
+                current = 0,
+                elem = this;
+            setInterval(function() {
+                if (current < contentArray.length) {
+                    elem.text(elem.text() + contentArray[current++]);
+                }
+            }, 80);
+        };
+
+    })(jQuery);
+
+    // input text for typing animation 
+    $("#holder").writeText("HIGH-END FAHSION / LUXURY STREET WEAR");
 })
