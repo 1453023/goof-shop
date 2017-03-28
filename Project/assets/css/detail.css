@@ -81,11 +81,110 @@ body {
     opacity: 1; }
 
 
+
+
+
+.product-image-view {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+* {
+    vertical-align: top;
+    outline: none;
+}
+
+.product-image-view .product-images {
+    padding: 20px 5px;
+    position: relative;
+}
+
+.product-image-view .product-big-view {
+    margin: 0 0 0 80px;
+}
+
+.carousel {
+    position: relative;
+}
+
+.product-image-view .product-images .carousel-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.product-image-view .product-big-view {
+    margin: 0 0 0 95px;
+}
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.carousel-inner>.active {
+    left: 0;
+}
+
+.carousel-inner>.active, .carousel-inner>.next, .carousel-inner>.prev {
+    display: block;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+.product-image-view .product-images .product-thumb {
+    float: left;
+    width: 15%;
+    position: absolute;
+    top: 50px;
+}
+
+.product-image-view .product-images .product-thumb a {
+    display: block;
+
+    margin: 0;
+}
+
+a:active, a:hover {
+    outline: 0;
+    cursor: pointer;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a {
+    background: transparent;
+}
+
+.product-image-view .product-images .product-thumb a img {
+    max-width: 100%;
+}
+
+.product-image-view a.carousel-control {
+    background: none;
+    top: auto;
+    bottom: 20px;
+    height: auto;
+}
+
 .new-product {
-    width: 80%;
+    width: 83%;
     float: right;
     min-height: 800px;
-    padding: 2em;
+    padding: 10px;
 }
 
 .dress-name {
