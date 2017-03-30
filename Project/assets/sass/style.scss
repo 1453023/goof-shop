@@ -536,9 +536,9 @@ a {
     }
 }
 
-#goof-shop {
+.goof-container {
     padding-top: 120px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
     @media screen and (max-width: 767px) {
         padding-top: 100px;
     }
@@ -584,6 +584,46 @@ a {
             }
         }
     }
+}
+
+#info {
+    width: 80%;
+    margin: 0 auto;
+    ul {
+        list-style: none;
+        li {
+            padding: 5px 0;
+        }
+    }
+    .contact-label {
+        margin: 0;
+        font-size: 0.8em;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: .38em;
+        +p {
+            margin-bottom: 25px;
+            padding-top: 10px;
+            padding-left: 40px;
+            line-height: 1.4em;
+        }
+    }
+}
+
+#special {
+    padding-top: 20px;
+    font-family: 'Rock Salt', cursive;
+    font-size: 1.3em;
+    letter-spacing: .5em;
+    text-align: center;
+    text-transform: none;
+    clear: left;
+}
+
+#map {
+    margin-top: 60px;
+    height: 400px;
+    width: 100%;
 }
 
 .navToggle {

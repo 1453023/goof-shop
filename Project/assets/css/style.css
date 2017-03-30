@@ -410,18 +410,18 @@ a {
     padding: 1em 2em; }
   #cd-cart .cd-item-remove {
     right: 2em; } }
-#goof-shop {
+.goof-container {
   padding-top: 120px;
-  padding-bottom: 200px; }
+  padding-bottom: 100px; }
   @media screen and (max-width: 767px) {
-    #goof-shop {
+    .goof-container {
       padding-top: 100px; } }
-  #goof-shop .product-block .img-block {
+  .goof-container .product-block .img-block {
     display: block;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s; }
-    #goof-shop .product-block .img-block img {
+    .goof-container .product-block .img-block img {
       display: block;
       margin: 0 auto;
       opacity: 1;
@@ -431,25 +431,58 @@ a {
       -o-transition: all .4s;
       transition: all .4s; }
       @media screen and (max-width: 1024px) {
-        #goof-shop .product-block .img-block img {
+        .goof-container .product-block .img-block img {
           width: 100%; } }
-  #goof-shop .product-block .title-block {
+  .goof-container .product-block .title-block {
     margin-top: 20px;
     text-align: center; }
-    #goof-shop .product-block .title-block a {
+    .goof-container .product-block .title-block a {
       text-transform: uppercase;
       font-size: 1em;
       vertical-align: middle;
       letter-spacing: 1.5px; }
-    #goof-shop .product-block .title-block .price-block {
+    .goof-container .product-block .title-block .price-block {
       display: block;
       margin-top: 10px;
       font-size: 1em;
       color: #000; }
-      #goof-shop .product-block .title-block .price-block .currency {
+      .goof-container .product-block .title-block .price-block .currency {
         font-size: 0.8em;
         font-weight: bold;
         color: #555; }
+
+#info {
+  width: 80%;
+  margin: 0 auto; }
+  #info ul {
+    list-style: none; }
+    #info ul li {
+      padding: 5px 0; }
+  #info .contact-label {
+    margin: 0;
+    font-size: 0.8em;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: .38em; }
+    #info .contact-label + p {
+      margin-bottom: 25px;
+      padding-top: 10px;
+      padding-left: 40px;
+      line-height: 1.4em; }
+
+#special {
+  padding-top: 20px;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.3em;
+  letter-spacing: .5em;
+  text-align: center;
+  text-transform: none;
+  clear: left; }
+
+#map {
+  margin-top: 60px;
+  height: 400px;
+  width: 100%; }
 
 .navToggle {
   display: table;
