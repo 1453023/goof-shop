@@ -22,24 +22,13 @@ $(function() {
         smartSpeed: 800
     });
 
-    var header = $('.navbar-header'),
-        btn = $('button.navbar-toggle'),
-        overlay = $('div.overlay');
-
-    btn.on('click', function() {
-        header.toggleClass('active');
-        overlay.toggleClass('hidden');
-    });
-
     // navbar scroll down to hide
     $('html').on('DOMMouseScroll mousewheel', function(e) {
         if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
             //scroll down
-            console.log('Down');
             $(".navbar").addClass("hide-nav-bar");
         } else {
             //scroll up
-            console.log('Up');
             $(".navbar").removeClass("hide-nav-bar");
         }
         //prevent page fom scrolling
@@ -61,11 +50,39 @@ $(function() {
         $(sliCont).animate({ 'width': 0 }, sliSpd);
     });
 
+    // toggle slide cart
+    var $shadow_layer = $('#cd-shadow-layer'),
+        $lateral_cart = $('#cd-cart'),
+        $cart_trigger = $('#cd-cart-trigger');
+
+    //open cart
+    $cart_trigger.on('click', function(event) {
+        event.preventDefault();
+        $lateral_cart.addClass('speed-in');
+        $shadow_layer.css({
+            "opacity": 1,
+            "z-index": 2
+        });
+    });
+
+    //close lateral cart or lateral menu
+    $shadow_layer.on('click', function() {
+        $lateral_cart.removeClass('speed-in');
+        $shadow_layer.css("opacity", "0");
+        setTimeout(function() {
+            $shadow_layer.css("z-index", "0");
+        }, 500)
+    });
+
     // menu sidebar click toggle
     $(".navToggle").on("click", function() {
         $(this).toggleClass("open");
-        $("#menu").toggleClass("active");
-        $("#sidebar").toggle(200, "linear");
+        $("#goof-menu").toggleClass("active");
+        if ($("#goof-menu").hasClass("active")) {
+            $("#sidebar").css("right", "150%");
+        } else {
+            $("#sidebar").css("right", "0%");
+        }
     })
 
     //sort filter menu
@@ -86,6 +103,21 @@ $(function() {
     });
 
     $typeListItem.detach().appendTo($typeList);
+
+    // change img on hover
+    var img_path = "../../assets/img/products/jacket/thumb_goof_product_jacket_";
+    $(".img-block img").on("mouseenter", function() {
+        var $el = $(this),
+            main_src = $(this).attr("src"),
+            sub_src = main_src.replace("1.png", "2.png");
+        $el.attr("src", sub_src);
+    });
+    $(".img-block img").on("mouseout", function() {
+        var $el = $(this),
+            main_src = $(this).attr("src"),
+            sub_src = main_src.replace("2.png", "1.png");
+        $el.attr("src", sub_src);
+    });
 
     // typing animation
     (function($) {
