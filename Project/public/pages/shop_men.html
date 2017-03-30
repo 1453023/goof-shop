@@ -9,56 +9,81 @@
     <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.css">
     <link href="../../assets/css/icomoon.css" rel="stylesheet">
     <link href="../../assets/css/style.css" rel="stylesheet">
-    <link href="../../assets/css/shop_men.css" rel="stylesheet">
 </head>
 
 <body>
-
     <nav class="navbar" role="navigation">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span>v</span>
-                    </button>
-                    <a class="navbar-brand" href="#">&lt;-G---O---O---F-&gt;</a>
-                </div>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav nav-options">
-                        <li><a class="nav-link" href="#">Bag(0)</a></li>
-                        <li><a class="nav-link" href="#">Login</a></li>
-                    </ul>
-                </div>
+        <div class="col-md-12">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index.html">G O O F</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="row">
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav nav-menu">
-                        <li id="first-item"><a class="nav-link" href="#">New Arrivals</a></li>
-                        <li><a class="nav-link" href="#">Collections</a></li>
-                        <li><a class="nav-link" href="#">Shop Men</a></li>
-                        <li><a class="nav-link" href="#">Shop Women</a></li>
-                        <li><a class="nav-link" href="#">Gallery</a></li>
-                        <li><a class="nav-link" href="#">Contact</a></li>
-                        <li id="last-item"><a class="nav-link" href="#">About</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <input type="submit" value="&#xf002;" class="search-btn fa ib-m">
+                    <div class="search-slide ib-m">
+                        <input type="text" placeholder="Enter your search" class="ib-m">
+                        <div class="search-close ib-m"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </li>
+                <li class="bag-count"><a id="cd-cart-trigger" href="#"><span class="bag-text">Bag (0)</span><span class="bag-icon">0</span></a></li>
+                <li id="login-md"><a href="./login.html">Login</a></li>
+            </ul>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div class="col-md-2 col-sm-2">
+
+    <div id="cd-shadow-layer"></div>
+
+    <div id="cd-cart">
+        <h2>Shopping bag</h2>
+        <ul class="cd-cart-items">
+            <li>
+                <span class="cd-qty">1x</span> Product Name
+                <div class="cd-price">$9.99</div>
+                <a href="#0" class="cd-item-remove cd-img-replace"><i class="fa fa-times"></i></a>
+            </li>
+
+            <li>
+                <span class="cd-qty">2x</span> Product Name
+                <div class="cd-price">$19.98</div>
+                <a href="#0" class="cd-item-remove cd-img-replace"><i class="fa fa-times"></i></a>
+            </li>
+
+            <li>
+                <span class="cd-qty">1x</span> Product Name
+                <div class="cd-price">$9.99</div>
+                <a href="#0" class="cd-item-remove cd-img-replace"><i class="fa fa-times"></i></a>
+            </li>
+        </ul>
+        <!-- cd-cart-items -->
+
+        <div class="cd-cart-total">
+            <p>Subtotal <span>$39.96</span></p>
+        </div>
+        <!-- cd-cart-total -->
+
+        <a href="#0" class="checkout-btn">Checkout</a>
+
+        <p class="cd-go-to-cart"><a href="#0">Go to bag detail</a></p>
+    </div>
+
+    <div class="container-fluid goof-container">
+        <div class="col-md-2 col-sm-2 ">
+            <div class="navToggle">
+                <div class="menu-btn">MENU<span class="icon"></span></div>
+            </div>
+            <div id="goof-menu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="./pages/contacts.html">Contacts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li id="login-xs"><a href="./login.html">Login</a></li>
+                </ul>
+            </div>
             <div id="sidebar">
-                <h4>Filters</h4>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <button type="submit" id="search-btn"><i class="icon-search2"></i></button>
-                </div>
                 <b>Genders</b>
                 <ul class="sidebar-nav">
                     <li class="active"><a href="#">Men</a></li>
@@ -85,172 +110,98 @@
         <div class="col-md-10  col-sm-10">
             <div class="col-md-4 col-sm-6">
                 <div class="product-block">
-                    <img src="../../assets/img/products/jacket/thumb_goof_product_jacket_01_1.png" alt="jacket">
-                    <div class="title-block">Lorem Ipsum</div>
+                    <a class="img-block" href="#">
+                        <img class="main-thumb" src="../../assets/img/products/jacket/thumb_goof_product_jacket_01_1.png" alt="jacket ">
+                    </a>
+                    <div class="title-block">
+                        <a href="#">GIORGIO DE CHIRICO BIKER</a>
+                        <br>
+                        <span class="price-block">
+                            <span class="currency">VND</span> 37,860,000.00
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="product-block">
-                    <img src="../../assets/img/products/jacket/thumb_goof_product_jacket_02_1.png" alt="jacket">
-                    <div class="title-block">Lorem Ipsum</div>
+                    <a class="img-block" href="#">
+                        <img class="main-thumb" src="../../assets/img/products/jacket/thumb_goof_product_jacket_02_1.png" alt="jacket ">
+                    </a>
+                    <div class="title-block ">
+                        <a href="#">LEATHER BOMBER AVIATOR</a>
+                        <br>
+                        <span class="price-block ">
+                            <span class="currency ">VND</span> 34,420,000.00
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/jacket/thumb_goof_product_jacket_03_1.png" alt="jacket">
-                    <div class="title-block">Lorem Ipsum</div>
+            <div class="col-md-4 col-sm-6 ">
+                <div class="product-block ">
+                    <a class="img-block" href="#">
+                        <img class="main-thumb" src="../../assets/img/products/jacket/thumb_goof_product_jacket_03_1.png" alt="jacket ">
+                    </a>
+                    <div class="title-block ">
+                        <a href="#">BROWN LEATHER BOMBER AVIATOR</a>
+                        <br>
+                        <span class="price-block ">
+                            <span class="currency ">VND</span> 36,590,000.00
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/jacket/thumb_goof_product_jacket_04_1.png" alt="jacket">
-                    <div class="title-block">Lorem Ipsum</div>
+            <div class="col-md-4 col-sm-6 ">
+                <div class="product-block ">
+                    <a class="img-block" href=" #">
+                        <img class="main-thumb" src="../../assets/img/products/jacket/thumb_goof_product_jacket_04_1.png" alt="jacket ">
+                    </a>
+                    <div class="title-block ">
+                        <a href="#">CAMOU LEATHER BOMBER</a>
+                        <br>
+                        <span class="price-block ">
+                            <span class="currency ">VND</span> 29,430,000.00
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/jacket/thumb_goof_product_jacket_05_1.png" alt="jacket">
-                    <div class="title-block">Lorem Ipsum</div>
+            <div class="col-md-4 col-sm-6 ">
+                <div class="product-block ">
+                    <a class="img-block" href=" #">
+                        <img class="main-thumb" src="../../assets/img/products/jacket/thumb_goof_product_jacket_05_1.png" alt="jacket ">
+                    </a>
+                    <div class="title-block ">
+                        <a href="#">ANORAK BLACK WHITE</a>
+                        <br>
+                        <span class="price-block ">
+                            <span class="currency ">VND</span> 19,460,000.00
+                        </span>
+                    </div>
                 </div>
             </div>
-            <!--<div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/shirt/goof_product_shirt_01_1.jpg" alt="shirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/shirt/goof_product_shirt_02_1.jpg" alt="shirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/shirt/goof_product_shirt_03_1.jpg" alt="shirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/shirt/goof_product_shirt_04_1.jpg" alt="shirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/shirt/goof_product_shirt_05_1.jpg" alt="shirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/sweatshirt/goof_product_sweatshirt_01_1,jpg" alt="sweatshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/sweatshirt/goof_product_sweatshirt_02_1,jpg" alt="sweatshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/sweatshirt/goof_product_sweatshirt_03_1,jpg" alt="sweatshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/sweatshirt/goof_product_sweatshirt_04_1,jpg" alt="sweatshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/sweatshirt/goof_product_sweatshirt_05_1,jpg" alt="sweatshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/sweatshirt/goof_product_sweatshirt_06_1,jpg" alt="sweatshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_01_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_02_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_03_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_04_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_05_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_06_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_07_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_08_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_09_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_10_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="product-block">
-                    <img src="../../assets/img/products/tshirt/goof_product_tshirt_11_1.jpg" alt="tshirt">
-                    <div class="title-block">Lorem Ipsum</div>
-                </div>
-            </div>-->
         </div>
+    </div>
+    <footer>
+        <div class="row ">
+            <div class="col-md-8 col-sm-8 ">
+                <p class="text-center ">Copyright &copy; 14CLC-Web05-Goof 2017 / Tống Hữu Lộc - Lại Triệu - Lê Thanh Tuấn</p>
+            </div>
+            <div class="col-md-4 col-sm-4 ">
+                <ul class="social-links ">
+                    <li><a href="#"><i class="fa fa-facebook-square "></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram "></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square "></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-square "></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
-        <script src="../../assets/js/jquery-3.1.1.min.js"></script>
-        <script src="../../assets/js/owl.carousel.min.js"></script>
-        <script src="../../assets/js/bootstrap.min.js"></script>
-        <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/jquery-3.1.1.min.js "></script>
+    <script src="../../assets/js/owl.carousel.min.js "></script>
+    <script src="../../assets/js/bootstrap.min.js "></script>
+    <script src="../../assets/js/cart.min.js"></script>
+    <script src="../../assets/js/rivets-cart.min.js"></script>
+    <script src="../../assets/js/main.js "></script>
 </body>
 
 </html>

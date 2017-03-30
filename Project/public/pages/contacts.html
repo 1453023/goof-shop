@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>-G-O-O-F- / CONTACT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.css">
+    <link href="../../assets/css/icomoon.css" rel="stylesheet">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation">
+        <div class="col-md-12">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index.html">G O O F</a>
+            </div>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <input type="submit" value="&#xf002;" class="search-btn fa ib-m">
+                    <div class="search-slide ib-m">
+                        <input type="text" placeholder="Enter your search" class="ib-m">
+                        <div class="search-close ib-m"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </li>
+                <li class="bag-count"><a id="cd-cart-trigger" href="#"><span class="bag-text">Bag (0)</span><span class="bag-icon">0</span></a></li>
+                <li id="login-md"><a href="./login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid goof-container">
+        <div class="col-md-2 col-sm-2 col-xs-4">
+            <div class="navToggle">
+                <div class="menu-btn">MENU<span class="icon"></span></div>
+            </div>
+            <div id="goof-menu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="./pages/contacts.html">Contacts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li id="login-xs"><a href="./login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-8">
+            <div id="info">
+                <div class="col-md-6 col-sm-6">
+                    <span class="contact-label">Email:</span>
+                    <ul>
+                        <li><a href="mailto:14clc-goof@smaple.com">14clc-goof@smaple.com</a></li>
+                        <li><a href="mailto:1453023@student.hcmus.edu.vn">1453023@student.hcmus.edu.vn</a></li>
+                        <li><a href="mailto:1453053@student.hcmus.edu.vn">1453053@student.hcmus.edu.vn</a></li>
+                        <li><a href="mailto:1453066@student.hcmus.edu.vn">1453066@student.hcmus.edu.vn</a></li>
+                    </ul>
+                    <p class="contact-label">Hotline:</p>
+                    <p>(+84) 123 456 6789</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="contact-label">Address:</p>
+                    <p>Nguyễn Hữu Cảnh, Quận Bình Thạnh, TP. HCM</p>
+                    <p class="contact-label">Available time:</p>
+                    <p>Everyday from 10 AM to 10 PM</p>
+                </div>
+                <p id="special">-est. 2017-</p>
+
+            </div>
+
+            <div class="col-md-12 col-sm-12"></div>
+            <div id="map"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="row ">
+            <div class="col-md-8 col-sm-8 ">
+                <p class="text-center ">Copyright &copy; 14CLC-Web05-Goof 2017 / Tống Hữu Lộc - Lại Triệu - Lê Thanh Tuấn</p>
+            </div>
+            <div class="col-md-4 col-sm-4 ">
+                <ul class="social-links ">
+                    <li><a href="#"><i class="fa fa-facebook-square "></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram "></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square "></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-square "></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/jquery-3.1.1.min.js "></script>
+    <script src="../../assets/js/owl.carousel.min.js "></script>
+    <script src="../../assets/js/bootstrap.min.js "></script>
+    <script src="../../assets/js/cart.min.js"></script>
+    <script src="../../assets/js/rivets-cart.min.js"></script>
+    <script src="../../assets/js/main.js "></script>
+    <script>
+        function initMap() {
+            var uluru = {
+                lat: 10.811140,
+                lng: 106.674074
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17,
+                center: uluru,
+                scrollwheel: false,
+                styles: [{
+                    "featureType": "administrative",
+                    "elementType": "all",
+                    "stylers": [{
+                        "saturation": "-100"
+                    }]
+                }, {
+                    "featureType": "administrative.province",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{
+                        "saturation": "-100"
+                    }, {
+                        "lightness": "10"
+                    }, {
+                        "visibility": "on"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [{
+                        "saturation": "-100"
+                    }, {
+                        "lightness": "-5"
+                    }, {
+                        "visibility": "simplified"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [{
+                        "saturation": "-100"
+                    }]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "simplified"
+                    }]
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "all",
+                    "stylers": [{
+                        "lightness": "10"
+                    }]
+                }, {
+                    "featureType": "road.local",
+                    "elementType": "all",
+                    "stylers": [{
+                        "lightness": "5"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{
+                        "saturation": "-100"
+                    }, {
+                        "visibility": "simplified"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "hue": "#ffff00"
+                    }, {
+                        "lightness": -25
+                    }, {
+                        "saturation": -97
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "labels",
+                    "stylers": [{
+                        "lightness": -25
+                    }, {
+                        "saturation": "-100"
+                    }]
+                }]
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDPcGTsy2X9bpJtOZGoBPWD5kQHA-_Ljw&callback=initMap">
+    </script>
+</body>
+
+</html>
