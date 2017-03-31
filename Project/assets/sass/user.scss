@@ -47,20 +47,61 @@ li {
     .user-content {
         width: 80%;
         margin: 0 auto;
-        tr {
-            border: 1px solid #222;
-        }
+        border: 1px solid #222;
+        tr {}
         td {
-            padding: 5px 15px;
+            padding: 15px;
+            font-size: 0.9em;
         }
         .table-header {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 0.4em;
             line-height: 1.6em;
             background: #222;
+        }
+        .edit-btn {
+            padding: 5px 20px;
+            font-size: 0.6em;
+            color: #fff;
+            text-transform: uppercase;
+            float: right;
+            box-shadow: none;
+            border: 1px solid #222;
+            border-radius: 0;
+            background: #222;
+            -webkit-transition: all .2s;
+            -moz-transition: all .2s;
+            -ms-transition: all .2s;
+            -o-transition: all .2s;
+            transition: all .2s;
+            &:focus {
+                outline: none;
+            }
+            &:hover {
+                color: #000;
+                background: #fff;
+            }
+            &#change-pass,
+            &.delete-address {
+                color: #000;
+                float: left;
+                background: #fff;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        #row-form-address {
+            display: none;
+            td {
+                vertical-align: top;
+            }
+        }
+        #form-address {
+            opacity: 0;
         }
     }
     .l-main {
@@ -91,37 +132,6 @@ li {
     .b-account__title {
         font-size: 16px;
         color: #4c4c4c;
-    }
-}
-
-.btn {
-    transition: background-color .3s, color .2s;
-    box-sizing: border-box;
-    display: inline-block;
-    padding: 12px;
-    line-height: 10px;
-    text-align: center;
-    white-space: nowrap;
-    cursor: pointer;
-    user-select: none;
-    background-image: none;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    vertical-align: middle;
-    &.btn--tiny {
-        padding: 6px;
-        border: 1px solid;
-        font-size: 14px;
-    }
-    &.btn--secondary {
-        background-color: #fff;
-        color: #000;
-        border-color: #000;
-        &:hover {
-            background-color: #000;
-            color: #fff;
-            border-color: #000;
-        }
     }
 }
 
@@ -192,6 +202,26 @@ li {
 
 .fsl {
     font-size: 20px;
+}
+
+.tbl-pt30 {
+    td {
+        padding-top: 30px !important;
+    }
+}
+
+.tbl-pb30 {
+    td {
+        padding-bottom: 30px !important;
+    }
+}
+
+.pt30 {
+    padding-top: 30px;
+}
+
+.pb30 {
+    padding-bottom: 30px;
 }
 
 .pll {

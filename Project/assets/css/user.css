@@ -35,19 +35,51 @@ li {
     border: 1px solid #222; }
   #content .user-content {
     width: 80%;
-    margin: 0 auto; }
-    #content .user-content tr {
-      border: 1px solid #222; }
+    margin: 0 auto;
+    border: 1px solid #222; }
     #content .user-content td {
-      padding: 5px 15px; }
+      padding: 15px;
+      font-size: 0.9em; }
     #content .user-content .table-header {
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: bold;
       color: #fff;
       text-transform: uppercase;
       letter-spacing: 0.4em;
       line-height: 1.6em;
       background: #222; }
+    #content .user-content .edit-btn {
+      padding: 5px 20px;
+      font-size: 0.6em;
+      color: #fff;
+      text-transform: uppercase;
+      float: right;
+      box-shadow: none;
+      border: 1px solid #222;
+      border-radius: 0;
+      background: #222;
+      -webkit-transition: all .2s;
+      -moz-transition: all .2s;
+      -ms-transition: all .2s;
+      -o-transition: all .2s;
+      transition: all .2s; }
+      #content .user-content .edit-btn:focus {
+        outline: none; }
+      #content .user-content .edit-btn:hover {
+        color: #000;
+        background: #fff; }
+      #content .user-content .edit-btn#change-pass, #content .user-content .edit-btn.delete-address {
+        color: #000;
+        float: left;
+        background: #fff; }
+        #content .user-content .edit-btn#change-pass:hover, #content .user-content .edit-btn.delete-address:hover {
+          text-decoration: underline; }
+    #content .user-content #row-form-address {
+      display: none; }
+      #content .user-content #row-form-address td {
+        vertical-align: top; }
+    #content .user-content #form-address {
+      opacity: 0; }
   #content .l-main {
     float: right;
     position: relative; }
@@ -71,33 +103,6 @@ li {
   .title-bar .b-account__title {
     font-size: 16px;
     color: #4c4c4c; }
-
-.btn {
-  transition: background-color .3s, color .2s;
-  box-sizing: border-box;
-  display: inline-block;
-  padding: 12px;
-  line-height: 10px;
-  text-align: center;
-  white-space: nowrap;
-  cursor: pointer;
-  user-select: none;
-  background-image: none;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  vertical-align: middle; }
-  .btn.btn--tiny {
-    padding: 6px;
-    border: 1px solid;
-    font-size: 14px; }
-  .btn.btn--secondary {
-    background-color: #fff;
-    color: #000;
-    border-color: #000; }
-    .btn.btn--secondary:hover {
-      background-color: #000;
-      color: #fff;
-      border-color: #000; }
 
 .rfloat {
   float: right; }
@@ -152,6 +157,18 @@ li {
 
 .fsl {
   font-size: 20px; }
+
+.tbl-pt30 td {
+  padding-top: 30px !important; }
+
+.tbl-pb30 td {
+  padding-bottom: 30px !important; }
+
+.pt30 {
+  padding-top: 30px; }
+
+.pb30 {
+  padding-bottom: 30px; }
 
 .pll {
   padding-left: 20px; }

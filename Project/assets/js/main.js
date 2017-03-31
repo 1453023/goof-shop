@@ -119,6 +119,15 @@ $(function() {
         $el.attr("src", sub_src);
     });
 
+    // user edit
+    var chosen_row;
+    $(".edit-address").on("click", function() {
+        chosen_row = $(this).parent().parent();
+        chosen_row.hide();
+        $("#row-form-address").show();
+        $("#form-address").css("opacity", "1");
+    });
+
     // typing animation
     (function($) {
         $.fn.writeText = function(content) {
