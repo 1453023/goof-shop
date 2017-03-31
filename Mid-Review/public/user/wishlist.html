@@ -5,103 +5,95 @@
     <title>-G-O-O-F- / ACCOUNT</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../../assets/css/animate.min.css">
-    <link rel="stylesheet" href="../../../assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../../assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-    <link href="../../../assets/css/icomoon.css" rel="stylesheet">
-    <link href="../../../assets/css/style.css" rel="stylesheet">
-    <link href="../../../assets/css/account_information.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.css">
+    <link href="../../assets/css/icomoon.css" rel="stylesheet">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="../../assets/css/user.css" rel="stylesheet">
 </head>
 
 <body>
 
     <nav class="navbar" role="navigation">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span>v</span>
-                    </button>
-                    <a class="navbar-brand" href="#">&lt;-G---O---O---F-&gt;</a>
-                </div>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav nav-options">
-                        <li><a class="nav-link" href="#">Bag(0)</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trieu <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-header">WELCOME</li>
-                                <li><a href="account_information.html">MY ACCOUNT</a></li>
-                                <li><a href="store_credit.html">MY STORE CREDIT</a></li>
-                                <li><a href="wishlist.html">MY WISHLIST</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="../../index.html">LOGOUT</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+        <div class="col-md-12">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="../index.html">G O O F</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="row">
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav nav-menu">
-                        <li id="first-item"><a class="nav-link" href="#">New Arrivals</a></li>
-                        <li><a class="nav-link" href="#">Collections</a></li>
-                        <li><a class="nav-link" href="#">Shop Men</a></li>
-                        <li><a class="nav-link" href="#">Shop Women</a></li>
-                        <li><a class="nav-link" href="#">Gallery</a></li>
-                        <li><a class="nav-link" href="#">Contact</a></li>
-                        <li id="last-item"><a class="nav-link" href="#">About</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <input type="submit" value="&#xf002;" class="search-btn fa ib-m">
+                    <div class="search-slide ib-m">
+                        <input type="text" placeholder="Enter your search" class="ib-m">
+                        <div class="search-close ib-m"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </li>
+                <li class="bag-count"><a id="cd-cart-trigger" href="#"><span class="bag-text">Bag (0)</span><span class="bag-icon">0</span></a></li>
+                <li id="login-md"><a href="./login.html">Login</a></li>
+            </ul>
         </div>
     </nav>
-    <div class="container">
-        <div role="main" id="content">
-            <div class="l-hasSidebar">
-                <div class="l-sidebar box-bgcolor col-sm-3">
-                    <div class="customer_menu">
-                        <div>
-                            <h4 class="accMenuPad">MY ACCOUNT</h4>
-                            <ul class="b-accountMenu" id="yw0">
-                                <li>
-                                    <a class="b-accountMenu-Itm sel-menu-myaccount" href="account_information.html">My Account</a>
-                                </li>
-                                <li>
-                                <a class="b-accountMenu-Itm sel-menu-wallet" href="store_credit.html">My Store Credit</a>
-                                </li>
-                                <li class="selected ">
-                                <a class="b-accountMenu-Itm sel-menu-orders-exchange-return" href="wishlist.html">Wishlist</a>
-                                </li>
-                                <li>
-                                <a class="b-accountMenu-Itm sel-menu-preferences" href="discount.html">Discount</a>
-                                </li>
-                            </ul>    
-                        </div>
-                    </div>
-                </div>
-                <div class="l-main box-bgcolor col-sm-9">
-                    <div class="title-bar pal box">
-                        <div class="b-account__title">My Wishlist</div>
-                    </div>
-                    <div class="b-wishlist__list pll prl">
-                    <div class=" l-relative mtl mbm pbm">
-                        You have no Wishlist.        </div>
-                        <a class="lfloat btn btn--secondary btn--tiny sel-link-edit-contact" href="../../index.html">Go Shopping now !</a>
-                    </div>
-                </div>
+    <div role="main" id="content" class="container-fluid goof-container">
+        <div class="col-sm-2">
+            <div class="navToggle">
+                <div class="menu-btn">MENU<span class="icon"></span></div>
+            </div>
+            <div id="goof-menu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="./pages/contacts.html">Contacts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li id="login-xs"><a href="./login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="sidebar">
+                <ul class="b-accountMenu">
+                    <li"><a href="index.html">Account information</a></li>
+                    <li><a href="store_credit.html">Credit information</a></li>
+                    <li  class="active"><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="discount.html">Coupon</a></li>
+                </ul>
             </div>
         </div>
+        <div class="col-sm-10">
+            <table class="user-content">
+                <tr class="table-header">
+                    <td colspan="2">My Wishlist</td>
+                </tr>
+                <tr>
+                    <td>You have no Wishlist.</td>
+                    <td>
+                    <a class="lfloat btn btn--secondary btn--tiny sel-link-edit-contact" href="../index.html">Go Shopping now !</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-        <script src="../../../assets/js/jquery-3.1.1.min.js"></script>
-        <script src="../../../assets/js/owl.carousel.min.js"></script>
-        <script src="../../../assets/js/bootstrap.min.js"></script>
-        <script src="../../../assets/js/main.js"></script>
+    <footer>
+        <div class="row ">
+            <div class="col-md-8 col-sm-8 ">
+                <p class="text-center ">Copyright &copy; 14CLC-Web05-Goof 2017 / Tống Hữu Lộc - Lại Triệu - Lê Thanh Tuấn</p>
+            </div>
+            <div class="col-md-4 col-sm-4 ">
+                <ul class="social-links ">
+                    <li><a href="#"><i class="fa fa-facebook-square "></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram "></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square "></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-square "></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/jquery-3.1.1.min.js "></script>
+    <script src="../../assets/js/owl.carousel.min.js "></script>
+    <script src="../../assets/js/bootstrap.min.js "></script>
+    <script src="../../assets/js/cart.min.js"></script>
+    <script src="../../assets/js/rivets-cart.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 
 </html>
