@@ -79,9 +79,9 @@ $(function() {
         $(this).toggleClass("open");
         $("#goof-menu").toggleClass("active");
         if ($("#goof-menu").hasClass("active")) {
-            $("#sidebar").css("right", "150%");
+            $(".sidebar").css("right", "150%");
         } else {
-            $("#sidebar").css("right", "0%");
+            $(".sidebar").css("right", "0%");
         }
     })
 

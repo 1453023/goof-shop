@@ -26,54 +26,61 @@ li {
     margin: 0 auto;
     position: relative;
     zoom: 1;
-}
-
-div {
-    display: block;
-}
-
-.l-hasSidebar {
-    margin: 0 auto;
-}
-
-.l-sidebar {
-    float: left;
-}
-
-.box-bgcolor {
-    background: #fff;
-}
-
-.accMenuPad {
-    margin: 0;
-    padding: 20px;
-    line-height: 1;
-}
-
-.b-accountMenu li.selected>a {
-    background: #4d4d4d;
-    color: #fff;
-}
-
-.b-accountMenu a {
-    padding: 10px 20px;
-    display: block;
-}
-
-.l-hasSidebar .l-main {
-    float: right;
-    position: relative;
-}
-
-.pal {
-    padding-left: 20px;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-}
-
-.mbm {
-    margin-bottom: 12px;
+    .b-accountMenu {
+        li {
+            padding: 10px;
+            &:hover {
+                a {
+                    text-decoration: underline;
+                }
+            }
+            a {
+                display: block;
+                font-size: 0.8em;
+                text-transform: uppercase;
+            }
+        }
+        li.active {
+            border: 1px solid #222;
+        }
+    }
+    .user-content {
+        width: 80%;
+        margin: 0 auto;
+        tr {
+            border: 1px solid #222;
+        }
+        td {
+            padding: 5px 15px;
+        }
+        .table-header {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            line-height: 1.6em;
+            background: #222;
+        }
+    }
+    .l-main {
+        float: right;
+        position: relative;
+        .pal {
+            padding-left: 20px;
+            padding-bottom: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+        }
+        .b-account__container {
+            padding: 20px;
+            color: #4c4c4c;
+            line-height: 20px;
+        }
+        .mbm {
+            margin-bottom: 12px;
+        }
+    }
 }
 
 .title-bar {
@@ -81,43 +88,10 @@ div {
     color: #000;
     background-color: #dfdfdf;
     text-transform: uppercase;
-}
-
-.b-account__title {
-    font-size: 16px;
-    color: #4c4c4c;
-}
-
-.b-account__container {
-    padding: 20px;
-    color: #4c4c4c;
-    line-height: 20px;
-}
-
-.box-bgcolor {
-    background: #fff;
-}
-
-.btn.btn--tiny {
-    padding: 6px;
-    border: 1px solid;
-    font-size: 14px;
-}
-
-.btn.btn--secondary {
-    background-color: #fff;
-    color: #000;
-    border-color: #000;
-}
-
-.btn.btn--secondary:hover {
-    background-color: #000;
-    color: #fff;
-    border-color: #000;
-}
-
-.rfloat {
-    float: right;
+    .b-account__title {
+        font-size: 16px;
+        color: #4c4c4c;
+    }
 }
 
 .btn {
@@ -134,16 +108,25 @@ div {
     letter-spacing: 1px;
     text-transform: uppercase;
     vertical-align: middle;
+    &.btn--tiny {
+        padding: 6px;
+        border: 1px solid;
+        font-size: 14px;
+    }
+    &.btn--secondary {
+        background-color: #fff;
+        color: #000;
+        border-color: #000;
+        &:hover {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+        }
+    }
 }
 
-.b-account__container {
-    padding: 20px;
-    color: #4c4c4c;
-    line-height: 20px;
-}
-
-.box-bgcolor {
-    background: #fff;
+.rfloat {
+    float: right;
 }
 
 .b-account__infoName {
@@ -165,8 +148,6 @@ div {
     zoom: 1;
 }
 
-.b-account__addressHeadContent {}
-
 .lfloat {
     float: left;
 }
@@ -179,8 +160,6 @@ div {
     margin-right: 20px;
 }
 
-.b-account__addressHeadContent {}
-
 .b-account__addressType {
     width: 75px;
 }
@@ -189,8 +168,6 @@ div {
     margin-bottom: 12px;
     margin-top: 12px;
 }
-
-.b-account__addressContent {}
 
 .mtm {
     margin-top: 12px;
@@ -226,7 +203,7 @@ div {
 }
 
 .l-relative {
-    position: relative!important;
+    position: relative !important;
 }
 
 .mtl {
