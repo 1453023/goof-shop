@@ -1,0 +1,93 @@
+extends ../main-layout.pug
+
+block sidebar
+  .sidebar
+    b Genders
+    ul.sidebar-nav
+      li.active
+        a(href='#') Men
+      li
+        a(href='#') Women
+    |  
+    b Collections
+    ul.sidebar-nav
+      li
+        a(href='#') Season &apos;17
+      li
+        a(href='#') Season &apos;16
+    ul#filter-type.sidebar-nav
+      li
+        a(href='#') Jacket
+      li
+        a(href='#') Sweatshirt
+      li
+        a(href='#') Shirt
+      li
+        a(href='#') T-shirt
+      li
+        a(href='#') Tanks
+      li
+        a(href='#') Pants
+      li
+        a(href='#') Socks
+      li
+        a(href='#') Accessories
+      li.active
+        a(href='') All
+block main
+  .col-md-10.col-sm-10
+    .col-md-4.col-sm-6
+      .product-block
+        a.img-block(href='../details/jacket_1.html')
+          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_01_1.png', alt='jacket ')
+        .title-block
+          a(href='#') GIORGIO DE CHIRICO BIKER
+          br
+          |  
+          span.price-block
+            span.currency VND
+            |  37,860,000.00
+    .col-md-4.col-sm-6
+      .product-block
+        a.img-block(href='../details/jacket_1.html')
+          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_02_1.png', alt='jacket ')
+        .title-block
+          a(href='#') LEATHER BOMBER AVIATOR
+          br
+          |  
+          span.price-block
+            span.currency VND
+            |  34,420,000.00
+    .col-md-4.col-sm-6
+      .product-block
+        a.img-block(href='../details/jacket_1.html')
+          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_03_1.png', alt='jacket ')
+        .title-block
+          a(href='#') BROWN LEATHER BOMBER AVIATOR
+          br
+          |  
+          span.price-block
+            span.currency VND
+            |  36,590,000.00
+    .col-md-4.col-sm-6
+      .product-block
+        a.img-block(href='../details/jacket_1.html')
+          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_04_1.png', alt='jacket ')
+        .title-block
+          a(href='#') CAMOU LEATHER BOMBER
+          br
+          |  
+          span.price-block
+            span.currency VND
+            |  29,430,000.00
+    .col-md-4.col-sm-6
+      .product-block
+        a.img-block(href='../details/jacket_1.html')
+          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_05_1.png', alt='jacket ')
+        .title-block
+          a(href='#') ANORAK BLACK WHITE
+          br
+          |  
+          span.price-block
+            span.currency VND
+            |  19,460,000.00

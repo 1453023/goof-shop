@@ -1,0 +1,74 @@
+extends ./home-layout.pug
+
+block content
+  nav.navbar(role='navigation')
+    .col-md-12
+      .navbar-header
+        a.navbar-brand(href='/') G O O F
+      ul.nav.navbar-nav.pull-right
+        li
+          input.search-btn.fa.ib-m(type='submit', value='')
+          .search-slide.ib-m
+            input.ib-m(type='text', placeholder='Enter your search')
+            .search-close.ib-m
+              i.fa.fa-times(aria-hidden='true')
+        li.bag-count
+          a#cd-cart-trigger(href='#')
+            span.bag-text Bag (0)
+            span.bag-icon 0
+        li#login-md
+          a(href='/login') Login
+  #cd-shadow-layer
+  #cd-cart
+    h2 Shopping bag
+    ul.cd-cart-items
+      li
+        span.cd-qty 1x
+        |  Product Name
+        .cd-price $9.99
+        a.cd-item-remove.cd-img-replace(href='#0')
+          i.fa.fa-times
+      li
+        span.cd-qty 2x
+        |  Product Name
+        .cd-price $19.98
+        a.cd-item-remove.cd-img-replace(href='#0')
+          i.fa.fa-times
+      li
+        span.cd-qty 1x
+        |  Product Name
+        .cd-price $9.99
+        a.cd-item-remove.cd-img-replace(href='#0')
+          i.fa.fa-times
+    .cd-cart-total
+      p
+        | Subtotal 
+        span $39.96
+    |  
+    a.checkout-btn(href='#0') Checkout
+    p.cd-go-to-cart
+      a(href='shopping_cart.html') Go to bag detail
+  .container-fluid.goof-container
+    .col-md-2.col-sm-2
+      .navToggle
+        .menu-btn
+          | MENU
+          span.icon
+      #goof-menu
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='../user/index.html') Account
+          li
+            a(href='#') Lookbook
+          li
+            a(href='/contacts') Contacts
+          li
+            a(href='#') About
+          li#login-xs
+            a(href='/login') Login
+      block sidebar
+    block main
+    
+block script

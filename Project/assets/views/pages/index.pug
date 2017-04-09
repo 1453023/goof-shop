@@ -1,0 +1,34 @@
+extends ../home-layout.pug
+
+block content
+  #goof-home.container
+    a.brand-name(href='/') GOOF
+    p.brand-desc
+      span#holder
+      span.blinking-cursor |
+    .accordion
+      ul
+        li
+          div
+            a(href='/shop_men')
+              h2.menu-title Shop men
+        li
+          div
+            a(href='/shop_men')
+              h2.menu-title Shop women
+        li
+          div
+            a(href='#')
+              h2.menu-title Collection
+        li
+          div
+            a(href='#')
+              h2.menu-title Lookbook
+        li
+          div
+            a(href='/contacts')
+              h2.menu-title Contacts
+        li
+          div
+            a(href='#')
+              h2.menu-title About    
