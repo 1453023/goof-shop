@@ -3,14 +3,14 @@ require 'compass/import-once/activate'
 
 
 http_path = "/"
-css_dir = "./assets/css"
-css_path = "./assets/css"
+css_dir = "./public/css"
+css_path = "./public/css"
 sass_dir = "./assets/sass"
 sass_path = "./assets/sass"
-images_dir = "img"
-images_path = "./assets/img"
-javascripts_dir = "javascripts"
-javascripts_path = "./assets/js"
+images_dir = "./public/img"
+images_path = "./public/img"
+javascripts_dir = "./public/js"
+javascripts_path = "./public/js"
 
 output_style = :nested
 

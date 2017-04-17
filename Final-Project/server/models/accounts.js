@@ -3,11 +3,14 @@ module.exports = function(sequelize, DataTypes) {
     var Accounts = sequelize.define('Accounts', {
         email: {
             type: DataTypes.STRING,
+            validate: {
+                isEmail: true
+            },
             allowNull: false
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            validate: { notNull: true, notEmpty: true }
         },
         gender: {
             type: DataTypes.BOOLEAN,

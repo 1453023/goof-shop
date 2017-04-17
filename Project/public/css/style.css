@@ -598,17 +598,20 @@ a {
     @media screen and (max-width: 479px) {
       #goof-menu li {
         margin: 0; } }
-    #goof-menu li:hover {
-      text-decoration: underline; }
+    #goof-menu li > ul.sub-menu {
+      padding-left: 5%; }
+      #goof-menu li > ul.sub-menu li {
+        margin: 0;
+        line-height: 1; }
     #goof-menu li:first-child {
       margin-top: 0; }
     #goof-menu li a:hover,
     #goof-menu li a:visited,
     #goof-menu li a:focus {
       color: #222;
-      text-decoration: none; }
+      text-decoration: underline; }
   #goof-menu.active {
-    height: 275px;
+    height: 385px;
     border-bottom: 1px solid #222; }
     @media screen and (max-width: 479px) {
       #goof-menu.active {

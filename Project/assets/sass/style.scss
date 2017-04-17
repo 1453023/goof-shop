@@ -767,8 +767,12 @@ a {
         @media screen and (max-width: 479px) {
             margin: 0;
         }
-        &:hover {
-            text-decoration: underline;
+        >ul.sub-menu {
+            padding-left: 5%;
+            li {
+                margin: 0;
+                line-height: 1;
+            }
         }
         &:first-child {
             margin-top: 0;
@@ -777,11 +781,11 @@ a {
         a:visited,
         a:focus {
             color: $primary-color;
-            text-decoration: none;
+            text-decoration: underline;
         }
     }
     &.active {
-        height: 275px;
+        height: 385px;
         border-bottom: 1px solid $primary-color;
         @media screen and (max-width: 479px) {
             height: 170px;

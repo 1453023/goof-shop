@@ -1,23 +1,23 @@
 {
     "development": {
-        "username": "TongHuuLoc",
+        "username": "root",
         "password": null,
-        "database": "g05-goof",
+        "database": "g05_goof_dev",
         "port": "5432",
         "host": "127.0.0.1",
         "dialect": "postgres"
     },
     "test": {
-        "username": "TongHuuLoc",
+        "username": "root",
         "password": null,
-        "database": "g05-goof",
+        "database": "g05_goof_test",
         "host": "127.0.0.1",
         "dialect": "postgres"
     },
     "production": {
-        "username": "TongHuuLoc",
+        "username": "root",
         "password": null,
-        "database": "g05-goof",
+        "database": "g05_goof_pro",
         "host": "127.0.0.1",
         "dialect": "postgres"
     }
