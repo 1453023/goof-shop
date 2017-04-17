@@ -1,9 +1,0 @@
-﻿-Hình ảnh trong project được lấy từ https://www.off---white.com/en/VN
--Thiết kế được lấy cảm hứng từ nhiều trang web của các hãng luxury fasshion trên thế giới, đặc biệt là Rick Owens
--Phân công công việc:
-	-Tống Hữu Lộc: quản lí Project, thiết kế layout chính cho toàn hệ thống, làm phân hệ Guest
-	-Lại Triệu: làm phân hệ User và trang Product details
-	-Lê Thanh Tuấn: làm phân hệ admin và trang Bag details
-Project vẫn chưa hoàn thành hoàn toàn về phần nhìn nhưng xem như đã ổn về layout.
-Vì thiết kế là tự thiết kế và code chứ không dùng template nên tiêu tốn khá nhiều thời gian.
-Cảm ơn thầy cô, và mong thầy cô thích :D
