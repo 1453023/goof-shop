@@ -16,8 +16,19 @@ block content
           a#cd-cart-trigger(href='#')
             span.bag-text Bag (0)
             span.bag-icon 0
-        li#login-md
-          a(href='/login') Login
+        if user
+          li#user-display
+            a.dropdown-toggle(href='#', role='button', data-toggle='dropdown')
+              i.fa.fa-user
+              = user
+            ul.dropdown-menu
+              li
+                a(tabindex='-1', href='/account') My Account
+              li
+                a(tabindex='-1', href='/logout') Logout
+        else
+          li#login-md
+            a(href='/login') Login
   #cd-shadow-layer
   #cd-cart
     h2 Shopping bag
@@ -70,10 +81,12 @@ block content
             a(href='/contacts') Contacts
           li
             a(href='#') About
-          li
-            a(href='../user/index.html') Account
-          li#login-xs
-            a(href='/login') Login
+          if user
+            li
+              a(href='../user/index.html') Account
+          else
+            li#login-xs
+              a(href='/login') Login
       block sidebar
     block main
     

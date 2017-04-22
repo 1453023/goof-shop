@@ -323,12 +323,16 @@ a {
     }
     .navbar-nav {
         margin: 0 !important;
-        li {
+        >li {
             display: inline-block;
-            &#login-md {
+            &#login-md,
+            &#user-display {
                 @media screen and (max-width: 479px) {
                     display: none;
                 }
+            }
+            &#user-display i {
+                padding-right: 10px;
             }
             a {
                 font-size: 14px;

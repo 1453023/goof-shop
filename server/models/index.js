@@ -4,6 +4,7 @@ var fs = require('fs'),
     path = require('path'),
     pg = require('pg'),
     Sequelize = require('sequelize'),
+    lodash = require('lodash'),
     basename = path.basename(module.filename),
     env = process.env.NODE_ENV || 'development',
     config = require(__dirname + '/../config.json')[env],
@@ -15,15 +16,16 @@ if (config.use_env_variable) {
     var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-const client = new pg.Client(sequelize);
-client.connect();
+// const client = new pg.Client(sequelize);
+// client.connect();
 
-require('../config/passport');
+// require('../config/passport');
+// var db = {};
 
 fs
     .readdirSync(__dirname)
     .filter(function(file) {
-        return (file.indexOf('.') !== 0) && (file !== basename);
+        return (file.indexOf('.') !== 0) && (file !== "index.js");
     })
     .forEach(function(file) {
         if (file.slice(-3) !== '.js') return;
@@ -37,7 +39,7 @@ Object.keys(db).forEach(function(modelName) {
     }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;
+module.exports = lodash.extend({
+    sequelize: sequelize,
+    Sequelize: Sequelize
+}, db)

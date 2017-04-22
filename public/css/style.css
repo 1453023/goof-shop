@@ -250,20 +250,22 @@ a {
           line-height: 25px; } }
   .navbar .navbar-nav {
     margin: 0 !important; }
-    .navbar .navbar-nav li {
+    .navbar .navbar-nav > li {
       display: inline-block; }
       @media screen and (max-width: 479px) {
-        .navbar .navbar-nav li#login-md {
+        .navbar .navbar-nav > li#login-md, .navbar .navbar-nav > li#user-display {
           display: none; } }
-      .navbar .navbar-nav li a {
+      .navbar .navbar-nav > li#user-display i {
+        padding-right: 10px; }
+      .navbar .navbar-nav > li a {
         font-size: 14px; }
-        .navbar .navbar-nav li a:hover, .navbar .navbar-nav li a:visited, .navbar .navbar-nav li a:focus {
+        .navbar .navbar-nav > li a:hover, .navbar .navbar-nav > li a:visited, .navbar .navbar-nav > li a:focus {
           text-decoration: underline;
           color: #222;
           background: transparent; }
-      .navbar .navbar-nav li:first-child {
+      .navbar .navbar-nav > li:first-child {
         padding-right: 15px; }
-        .navbar .navbar-nav li:first-child:before {
+        .navbar .navbar-nav > li:first-child:before {
           content: '';
           width: 1px;
           height: 50%;
@@ -271,7 +273,7 @@ a {
           top: 25%;
           right: 0%;
           background: #222; }
-      .navbar .navbar-nav li input[type=submit] {
+      .navbar .navbar-nav > li input[type=submit] {
         vertical-align: middle;
         width: 1.375em;
         height: 1.375em;
@@ -279,9 +281,9 @@ a {
         outline: none;
         background: none;
         transition: opacity 100ms ease-in-out; }
-        .navbar .navbar-nav li input[type=submit]:hover {
+        .navbar .navbar-nav > li input[type=submit]:hover {
           opacity: .5; }
-      .navbar .navbar-nav li input[type=text] {
+      .navbar .navbar-nav > li input[type=text] {
         width: 14em;
         height: 2.5em;
         padding: 0 .375em;
@@ -290,7 +292,7 @@ a {
         margin-left: .1875em;
         background: inherit;
         transition: border-color 100ms ease-in-out; }
-        .navbar .navbar-nav li input[type=text]:focus {
+        .navbar .navbar-nav > li input[type=text]:focus {
           border-bottom-color: inherit;
           outline: none; }
     .navbar .navbar-nav .ib-m {

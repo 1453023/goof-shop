@@ -4,7 +4,7 @@ block main
   .col-sm-10.col-xs-8
     .row
       .col-sm-6
-        form#form-login.goof-form(action='/login', method='POST', role='form')
+        form#form-login.goof-form(action='/authenticate', method='POST', role='form')
           legend Login as existing
           .form-group
             label(for='') Email
@@ -15,8 +15,8 @@ block main
             |  
             input#input-password.form-control(type='password', name='password', required='')
           |
-          div#error-block
-            if error
+          if error
+            div#error-block
               p= error
           input(type='hidden', value= csrfToken, name='_csrf')
           a#forget-psw(href='#') Forgot Password?

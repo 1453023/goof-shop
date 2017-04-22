@@ -11,13 +11,18 @@ var express = require('express'),
     sequelize = require('sequelize'),
     flash = require('connect-flash'),
     passport = require('passport'),
+    passportConfig = require('./config/passport'),
+    helmet = require('helmet'),
+    csrf = require('csurf'),
+    csrfProtection = csrf({ cookie: true }),
 
-    routes = require('./routes/index'),
+    routes = require('./routes'),
+    user = require('./routes/user'),
+    main = require('./routes/main'),
+    application = require('./routes/application'),
 
-    app = express();
-
-var models = require('./models/index')
-require('./config/passport');
+    app = express(),
+    db = require('./models');
 
 //assign pug engine to pug files
 app.engine('pug', cons.pug);
@@ -25,6 +30,8 @@ app.engine('pug', cons.pug);
 // set default ext. pug
 app.set('view engine', 'pug');
 app.set('views', __dirname + '\\..\\assets\\views');
+
+// Configuration for BCrypt Salt Work Factor
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -36,18 +43,41 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // session
 app.use(session({
-    secret: 'superSecret',
-    resave: false,
-    saveUninitialized: false
+    secret: 'goatjsformakebettersecurity',
+    // resave: false,
+    // saveUninitialized: false
 }));
 
+app.use(helmet());
+app.use(function(req, res, next) {
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+    next();
+});
 // authentication initialize
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// app.use(app.router);
 
-app.use('/', routes);
+//routes 
+app.get('/', routes.index);
+app.get('/shop_men', main.shop_men);
+app.get('/contacts', main.contacts);
+app.get('/login', csrfProtection, main.login);
+// app.post('/account/update', application.IsAuthenticated, user.update);
+app.post('/authenticate',
+    passport.authenticate('local.login', {
+        successRedirect: '/shop_men',
+        failureFlash: 'Invalid Email or Password',
+        failureRedirect: '/login'
+    }));
+app.get('/logout', application.destroySession);
+app.get('/account', application.IsAuthenticated, main.account);
+// app.get('/signup', user.signUp);
+// app.post('/register', user.register);
+// app.get('/search', application.IsAuthenticated, home.search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

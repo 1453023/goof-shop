@@ -1,42 +1,32 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-
-const user = {
-    email: 'test@gmail.com',
-    password: '123',
-    id: 1
-};
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    db = require('../models')
 
 // Serialize sessions
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user);
 });
 
-passport.deserializeUser(function(id, done) {
-    db.User.find({ where: { id: id } }).success(function(user) {
+passport.deserializeUser(function(user, done) {
+    db.Accounts.find({ where: { id: user.id } }).then(function(user) {
         done(null, user);
     }).error(function(err) {
         done(err, null);
     });
 });
 
+
 passport.use('local.login', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
 }, function(req, email, password, done) {
-    var models = require('../models/index');
-    models.User.findOne({ email: email, password: password }, function(err, user) {
-        if (err) {
-            return done(err);
-        }
-        if (!user) {
-            req.flash('error', 'Invalid email or password!');
-            return done(null, false);
-        } else {
-            req.session.email = email;
-            return done(null, user);
-        }
+    // var models = require('../models/index');
+    db.Accounts.find({
+        where: { email: email, $and: { email: { $notILike: "admin%" } } }
+    }).then(function(user) {
+        passwd = user ? user.password : ''
+        isMatch = db.Accounts.validPassword(password, passwd, done, user)
     });
 }));
 
