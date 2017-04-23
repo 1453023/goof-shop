@@ -1,4 +1,5 @@
-var db = require('../models');
+var db = require('../models'),
+    pg = require('pg');
 
 exports.shop_men = function(req, res) {
     if (req.user) {

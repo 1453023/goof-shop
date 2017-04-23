@@ -10,17 +10,19 @@ var fs = require('fs'),
     config = require(__dirname + '/../config.json')[env],
     db = {};
 
-if (config.use_env_variable) {
-    var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-    var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+var sequelize = new Sequelize(process.env.DATABASE_URL);
 
-// const client = new pg.Client(sequelize);
-// client.connect();
+// pg.defaults.ssl = true;
+// pg.connect(process.env.DATABASE_URL, function(err, client) {
+//     if (err) throw err;
+//     console.log('Connected to postgres! Getting schemas...');
 
-// require('../config/passport');
-// var db = {};
+//     client
+//         .query('SELECT table_schema,table_name FROM information_schema.tables;')
+//         .on('row', function(row) {
+//             console.log(JSON.stringify(row));
+//         });
+// });
 
 fs
     .readdirSync(__dirname)
