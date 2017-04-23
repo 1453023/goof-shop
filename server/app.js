@@ -29,7 +29,7 @@ app.engine('pug', cons.pug);
 
 // set default ext. pug
 app.set('view engine', 'pug');
-app.set('views', __dirname + '../assets/views');
+app.set('views', __dirname + '\.\./assets/views');
 
 // Configuration for BCrypt Salt Work Factor
 
