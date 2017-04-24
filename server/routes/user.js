@@ -19,17 +19,20 @@ exports.register = function(req, res) {
                 gender: req.body.gender,
                 region: req.body.region,
                 subscribe: req.body.subscribe
-            }).error(function(err) {
-                console.log(err);
+            }).then(function(err) {
+                if (err)
+                    console.log(err);
+                else {
+                    passport.authenticate('local.login')(req, res, function() {
+                        res.redirect('/shop_men')
+                    })
+                }
             });
         } else {
             req.flash('error', 'Email has already been used');
             res.redirect('/login');
         }
     });
-    passport.authenticate('local.login')(req, res, function() {
-        res.redirect('/shop_men')
-    })
 };
 
 exports.update = function(req, res) {
