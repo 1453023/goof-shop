@@ -28,7 +28,7 @@ exports.register = function(req, res) {
         }
     });
     // return res.render("pages/shop", { user: req.user.email, title: 'G-O-O-F / MEN' })
-    res.send('Your have been registered. You now can log on to your account.')
+    req.flash('error', 'You have been registered. You now can log on to your account.');
     res.redirect('/login');
 };
 
