@@ -34,7 +34,7 @@ block main
           .form-group
             label(for='') Email
             |  
-            input#input-email.form-control(type='email', required='')
+            input#input-email.form-control(type='email', name='email', required='')
           .form-group
             label(for='') Password
             |  
@@ -44,7 +44,7 @@ block main
             |
             input#confirm-password.form-control(type='password', name='cfm_password', required='')
           .form-group
-            input#subscribe(type='checkbox')
+            input#subscribe(type='checkbox', name='subscirbe')
             label(for='subscribe')
               span
               |  Sign up to the newsletter 

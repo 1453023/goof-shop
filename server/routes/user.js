@@ -12,7 +12,7 @@ exports.login = function(req, res) {
 exports.register = function(req, res) {
     db.Accounts.find({ where: { email: req.body.email } }).then(function(user) {
         if (!user) {
-            db.Accounts.create({ email: req.body.email, password: req.body.password }).error(function(err) {
+            db.Accounts.create({ email: req.body.email, password: req.body.password, gender: req.boy.gender, region: req.body.region, subscribe: req.body.subscribe }).error(function(err) {
                 console.log(err);
             });
         } else {
