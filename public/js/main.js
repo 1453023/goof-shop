@@ -189,11 +189,11 @@ $(function() {
             },
             password: {
                 required: "Please enter your password.",
-                minlength: jQuery.register_validate.format("Password must be at least {0} characters")
+                minlength: jQuery.validator.format("Password must be at least {0} characters")
             },
             cfm_password: {
                 required: "Please confirm your password.",
-                minlength: jQuery.register_validate.format("Password must be at least {0} characters"),
+                minlength: jQuery.validator.format("Password must be at least {0} characters"),
                 equalTo: "Your password does not match with each other."
             },
             gender: { required: "Please choose your gender." },
