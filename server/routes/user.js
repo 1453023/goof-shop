@@ -20,9 +20,7 @@ exports.register = function(req, res) {
             res.redirect('/login');
         }
     });
-    passport.authenticate('local.login', {
-        successRedirect: '/shop_men'
-    })
+    return res.redirect('/shop_men')
 };
 
 exports.update = function(req, res) {
