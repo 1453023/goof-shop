@@ -28,7 +28,8 @@ exports.register = function(req, res) {
         }
     });
     // return res.render("pages/shop", { user: req.user.email, title: 'G-O-O-F / MEN' })
-    return res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: "Your account has been registered! You can access to your account from now on!", csrfToken: req.csrfToken() });
+    res.send('Your have been registered. You now can log on to your account.')
+    res.redirect('/login');
 };
 
 exports.update = function(req, res) {
