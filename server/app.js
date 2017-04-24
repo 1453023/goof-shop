@@ -75,7 +75,7 @@ app.post('/authenticate',
     }));
 app.get('/logout', application.destroySession);
 app.get('/account', application.IsAuthenticated, main.account);
-app.post('/register', function(err) {
+app.post('/register', function(err, res, req) {
     db.Accounts.find({ where: { email: req.body.email } }).then(function(user) {
         if (!user) {
             db.Accounts
