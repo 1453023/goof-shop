@@ -7,7 +7,7 @@ var db = require('../models'),
 
 exports.shop_men = function(req, res) {
     // var img_list = app.dirTree(app.img_path);
-    db.Products.findAll().then(function(products) {
+    db.products.findAll().then(function(products) {
         if (req.user) {
             res.render("pages/shop", { user: req.user.email, products_list: products, title: 'G-O-O-F / MEN' });
         } else {
