@@ -15,9 +15,8 @@ block main
             |  
             input#input-password.form-control(type='password', name='password', required='')
           |
-          if error
-            div#error-block
-              p= error
+          div.error-block
+            p= error
           input(type='hidden', value= csrfToken, name='_csrf')
           a#forget-psw(href='#') Forgot Password?
           |  
@@ -42,8 +41,8 @@ block main
             input#input-password.form-control(type='password', name='password', required='')
           .form-group
             label(for='') Password Confirmation
-            |  
-            input#confirm-password.form-control(type='password', name='password', required='')
+            |
+            input#confirm-password.form-control(type='password', name='cfm_password', required='')
           .form-group
             input#subscribe(type='checkbox')
             label(for='subscribe')
@@ -54,7 +53,7 @@ block main
           .form-group
             ul#input-gender
               li
-                input#male(type='radio', name='gender')
+                input#male(type='radio', name='gender', required='')
                 |  
                 label(for='male') Male
                 .check
@@ -67,7 +66,7 @@ block main
           .form-group
             label(for='input-region') Choose your region
             |  
-            select#input-region
+            select(name='region')#input-region
               option(value='') --
               option(value='177') Afghanistan
               option(value='178') Albania
@@ -297,7 +296,7 @@ block main
               option(value='214') Zambia
               option(value='220') Zimbabwe
           .form-group
-            input#policy(type='checkbox', required='')
+            input#policy(type='checkbox', name="policy", required='')
             label(for='policy')
               span
               p
@@ -308,5 +307,7 @@ block main
                 i
                   | BY SIGNING UP YOU ARE AGREEING TO ACCEPT OUR 
                   a(href='#') PRIVACY POLICY
-          |  
+          |
+          div.error-block
+            p= req.flash('error')
           button.btn.form-btn(type='submit') Create

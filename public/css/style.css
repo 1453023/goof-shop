@@ -820,8 +820,9 @@ a {
       -webkit-box-shadow: none;
       box-shadow: none;
       outline: none; }
-  .goof-form #input-birthdate {
-    width: 100%; }
+  .goof-form .error-block {
+    font-size: 0.8em;
+    color: #e13b3b; }
 
 footer .row {
   margin-left: 0;

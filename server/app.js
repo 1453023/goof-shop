@@ -65,7 +65,7 @@ app.use(passport.session());
 app.get('/', routes.index);
 app.get('/shop_men', main.shop_men);
 app.get('/contacts', main.contacts);
-app.get('/login', csrfProtection, main.login);
+app.get('/login', csrfProtection, user.login);
 // app.post('/account/update', application.IsAuthenticated, user.update);
 app.post('/authenticate',
     passport.authenticate('local.login', {
@@ -75,8 +75,7 @@ app.post('/authenticate',
     }));
 app.get('/logout', application.destroySession);
 app.get('/account', application.IsAuthenticated, main.account);
-// app.get('/signup', user.signUp);
-// app.post('/register', user.register);
+app.post('/register', user.register);
 // app.get('/search', application.IsAuthenticated, home.search);
 
 // catch 404 and forward to error handler

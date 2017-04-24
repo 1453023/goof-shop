@@ -1,5 +1,4 @@
-var db = require('../models'),
-    pg = require('pg');
+var db = require('../models');
 
 exports.shop_men = function(req, res) {
     if (req.user) {
@@ -7,15 +6,6 @@ exports.shop_men = function(req, res) {
     } else {
         res.render("pages/shop", { user: "", title: 'G-O-O-F / MEN' });
     }
-}
-
-exports.login = function(req, res) {
-    // req.flash('err', 'Invalid username or password.');
-    console.log(req.flash('error'));
-    if (req.flash('error') === '')
-        res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: "", csrfToken: req.csrfToken() });
-    else
-        res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: req.flash('error'), csrfToken: req.csrfToken() });
 }
 
 exports.contacts = function(req, res) {

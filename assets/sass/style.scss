@@ -1067,8 +1067,9 @@ a {
             outline: none;
         }
     }
-    #input-birthdate {
-        width: 100%;
+    .error-block {
+        font-size: 0.8em;
+        color: #e13b3b;
     }
 }
 

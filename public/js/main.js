@@ -145,4 +145,60 @@ $(function() {
 
     // input text for typing animation 
     $("#holder").writeText("HIGH-END FAHSION / LUXURY STREET WEAR");
+
+    var login_validate = $('#form-login').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: "required"
+        },
+        messages: {
+            email: {
+                required: "Please enter your email.",
+                email: "Please enter a valid email address."
+            },
+            password: { required: "Please enter your password." }
+        }
+    });
+
+    var register_validate = $('#form-create').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 8,
+            },
+            cfm_password: {
+                required: true,
+                minlength: 8,
+                equalTo: '#input-password'
+            },
+            gender: "required",
+            region: "required",
+            policy: "required"
+        },
+        messages: {
+            email: {
+                required: "Please enter your email.",
+                email: "Please enter a valid email address."
+            },
+            password: {
+                required: "Please enter your password.",
+                minlength: jQuery.register_validate.format("Password must be at least {0} characters")
+            },
+            cfm_password: {
+                required: "Please confirm your password.",
+                minlength: jQuery.register_validate.format("Password must be at least {0} characters"),
+                equalTo: "Your password does not match with each other."
+            },
+            gender: { required: "Please choose your gender." },
+            region: { required: "Please choose  your region." },
+            policy: { required: "Please check this box to continue." }
+        }
+    });
 })

@@ -1,17 +1,23 @@
 var db = require('../models');
 
-exports.signUp = function(req, res) {
-    res.render("signup.ejs");
-};
+exports.login = function(req, res) {
+    // req.flash('err', 'Invalid username or password.');
+    console.log(req.flash());
+    // if (req.flash())
+    res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: req.flash('error'), csrfToken: req.csrfToken() });
+    // else
+    //     res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: "", csrfToken: req.csrfToken() });
+}
 
 exports.register = function(req, res) {
-    db.Accounts.find({ where: { username: req.body.username } }).success(function(user) {
+    db.Accounts.find({ where: { email: req.body.email } }).then(function(user) {
         if (!user) {
-            db.Accounts.create({ username: req.body.username, password: req.body.password }).error(function(err) {
+            db.Accounts.create({ email: req.body.email, password: req.body.password }).error(function(err) {
                 console.log(err);
             });
         } else {
-            res.redirect('/signup');
+            req.flash('error', 'Email has already been used');
+            res.redirect('/login');
         }
     });
     res.redirect('/');
