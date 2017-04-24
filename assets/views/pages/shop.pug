@@ -38,16 +38,16 @@ block sidebar
 block main
   .col-md-10.col-sm-10
     each item in product_lists
-    .col-md-4.col-sm-6
-      .product-block
-        a.img-block(href='../details/jacket_1.html')
-          img.main-thumb(src= item.thumbImgUrl[0], alt= item.category)
-        .title-block
-          a(href='#')= item.name
-          br
-          |  
-          span.price-block
-            span.currency= 'VND ' + item.price
+      .col-md-4.col-sm-6
+        .product-block
+          a.img-block(href='../details/jacket_1.html')
+            img.main-thumb(src= item.thumbImgUrl[0], alt= item.category)
+          .title-block
+            a(href='#')= item.name
+            br
+            |  
+            span.price-block
+              span.currency= 'VND ' + item.price
     //- .col-md-4.col-sm-6
     //-   .product-block
     //-     a.img-block(href='../details/jacket_1.html')
