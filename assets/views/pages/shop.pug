@@ -37,58 +37,69 @@ block sidebar
         a(href='') All
 block main
   .col-md-10.col-sm-10
+    each item in product_lists
     .col-md-4.col-sm-6
       .product-block
         a.img-block(href='../details/jacket_1.html')
-          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_01_1.png', alt='jacket ')
+          img.main-thumb(src= item.thumbImgUrl[0], alt= item.category)
         .title-block
-          a(href='#') GIORGIO DE CHIRICO BIKER
+          a(href='#')= item.name
           br
           |  
           span.price-block
-            span.currency VND
-            |  37,860,000.00
-    .col-md-4.col-sm-6
-      .product-block
-        a.img-block(href='../details/jacket_1.html')
-          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_02_1.png', alt='jacket ')
-        .title-block
-          a(href='#') LEATHER BOMBER AVIATOR
-          br
-          |  
-          span.price-block
-            span.currency VND
-            |  34,420,000.00
-    .col-md-4.col-sm-6
-      .product-block
-        a.img-block(href='../details/jacket_1.html')
-          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_03_1.png', alt='jacket ')
-        .title-block
-          a(href='#') BROWN LEATHER BOMBER AVIATOR
-          br
-          |  
-          span.price-block
-            span.currency VND
-            |  36,590,000.00
-    .col-md-4.col-sm-6
-      .product-block
-        a.img-block(href='../details/jacket_1.html')
-          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_04_1.png', alt='jacket ')
-        .title-block
-          a(href='#') CAMOU LEATHER BOMBER
-          br
-          |  
-          span.price-block
-            span.currency VND
-            |  29,430,000.00
-    .col-md-4.col-sm-6
-      .product-block
-        a.img-block(href='../details/jacket_1.html')
-          img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_05_1.png', alt='jacket ')
-        .title-block
-          a(href='#') ANORAK BLACK WHITE
-          br
-          |  
-          span.price-block
-            span.currency VND
-            |  19,460,000.00
+            span.currency= 'VND ' + item.price
+    //- .col-md-4.col-sm-6
+    //-   .product-block
+    //-     a.img-block(href='../details/jacket_1.html')
+    //-       img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_01_1.png', alt='jacket ')
+    //-     .title-block
+    //-       a(href='#') GIORGIO DE CHIRICO BIKER
+    //-       br
+    //-       |  
+    //-       span.price-block
+    //-         span.currency VND
+    //-         |  37,860,000.00
+    //- .col-md-4.col-sm-6
+    //-   .product-block
+    //-     a.img-block(href='../details/jacket_1.html')
+    //-       img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_02_1.png', alt='jacket ')
+    //-     .title-block
+    //-       a(href='#') LEATHER BOMBER AVIATOR
+    //-       br
+    //-       |  
+    //-       span.price-block
+    //-         span.currency VND
+    //-         |  34,420,000.00
+    //- .col-md-4.col-sm-6
+    //-   .product-block
+    //-     a.img-block(href='../details/jacket_1.html')
+    //-       img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_03_1.png', alt='jacket ')
+    //-     .title-block
+    //-       a(href='#') BROWN LEATHER BOMBER AVIATOR
+    //-       br
+    //-       |  
+    //-       span.price-block
+    //-         span.currency VND
+    //-         |  36,590,000.00
+    //- .col-md-4.col-sm-6
+    //-   .product-block
+    //-     a.img-block(href='../details/jacket_1.html')
+    //-       img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_04_1.png', alt='jacket ')
+    //-     .title-block
+    //-       a(href='#') CAMOU LEATHER BOMBER
+    //-       br
+    //-       |  
+    //-       span.price-block
+    //-         span.currency VND
+    //-         |  29,430,000.00
+    //- .col-md-4.col-sm-6
+    //-   .product-block
+    //-     a.img-block(href='../details/jacket_1.html')
+    //-       img.main-thumb(src='/img/products/jacket/thumb/thumb_goof_product_jacket_05_1.png', alt='jacket ')
+    //-     .title-block
+    //-       a(href='#') ANORAK BLACK WHITE
+    //-       br
+    //-       |  
+    //-       span.price-block
+    //-         span.currency VND
+    //-         |  19,460,000.00

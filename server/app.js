@@ -15,11 +15,18 @@ var express = require('express'),
     helmet = require('helmet'),
     csrf = require('csurf'),
     csrfProtection = csrf({ cookie: true }),
+    multer = require('multer'),
+    cors = require('cors'),
+    fs = require('fs'),
+    loki = require('lokijs'),
+    multer = require('multer'),
+    // uploads = multer({ dest: 'uploads/' }),
 
     routes = require('./routes'),
     user = require('./routes/user'),
     main = require('./routes/main'),
     application = require('./routes/application'),
+    admin = require('./routes/admin'),
 
     app = express(),
     db = require('./models');
@@ -31,7 +38,29 @@ app.engine('pug', cons.pug);
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '../assets/views'));
 
-// Configuration for BCrypt Salt Work Factor
+function dirTree(filename) {
+    var stats = fs.lstatSync(filename),
+        info = {
+            path: filename,
+            name: path.basename(filename)
+        };
+
+    if (stats.isDirectory()) {
+        info.type = "folder";
+        info.children = fs.readdirSync(filename).map(function(child) {
+            // stats = fs.lstatSync(filename + '\\' + child);
+            return dirTree(filename + '\\' + child);
+        });
+    } else {
+        // Assuming it's a file. In real life it could be a symlink or
+        // something else!
+        info.type = "file";
+    }
+
+    return info;
+}
+var img_path = path.join(__dirname, '../public/img');
+// var img_list = dirTree(img_path);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -40,6 +69,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(cors());
 
 // session
 app.use(session({
@@ -76,7 +106,16 @@ app.post('/authenticate',
 app.get('/logout', application.destroySession);
 app.get('/account', application.IsAuthenticated, main.account);
 app.post('/register', user.register);
-// app.get('/search', application.IsAuthenticated, home.search);
+app.get('/admin', admin.authenticate);
+app.post('/admin/login',
+    passport.authenticate('local.admin', {
+        successRedirect: '/admin/dashboard',
+        failureRedirect: '/admin'
+    }));
+app.get('/admin/dashboard', application.IsAuthenticated, admin.dashboard)
+    // app.get('/search', application.IsAuthenticated, home.search);
+
+// app.post('/product_img/upload', upload.array('photos'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -95,5 +134,7 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('layouts/error');
 });
+
+
 
 module.exports = app;

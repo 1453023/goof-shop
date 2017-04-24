@@ -30,4 +30,16 @@ passport.use('local.login', new LocalStrategy({
     });
 }));
 
+passport.use('local.admin', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+}, function(req, email, password, done) {
+    // var models = require('../models/index');
+    db.Accounts.find({ where: { email: email, $and: { email: { $iLike: "admin%" } } } }).then(function(user) {
+        passwd = user ? user.password : ''
+        isMatch = db.Accounts.validPassword(password, passwd, done, user)
+    });
+}));
+
 module.exports = passport;

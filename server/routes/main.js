@@ -1,11 +1,20 @@
-var db = require('../models');
+var db = require('../models'),
+    path = require('path'),
+    fs = require('fs'),
+    app = require('../app.js');
+// env = process.env.NODE_ENV || 'development',
+// config = require(path.join(__dirname, '../../public/img')[env];
 
 exports.shop_men = function(req, res) {
-    if (req.user) {
-        res.render("pages/shop", { user: req.user.email, title: 'G-O-O-F / MEN' });
-    } else {
-        res.render("pages/shop", { user: "", title: 'G-O-O-F / MEN' });
-    }
+    // var img_list = app.dirTree(app.img_path);
+    db.Products.findAll().then(function(products) {
+        if (req.user) {
+            res.render("pages/shop", { user: req.user.email, products_list: products, title: 'G-O-O-F / MEN' });
+        } else {
+            res.render("pages/shop", { user: "", products_list: products, title: 'G-O-O-F / MEN' });
+        }
+    })
+
 }
 
 exports.contacts = function(req, res) {
@@ -17,7 +26,7 @@ exports.contacts = function(req, res) {
 }
 
 exports.account = function(req, res) {
-    res.render('pages/user_account', { title: 'G-O-O-F / ACCOUNT' });
+    res.render('pages/user_account', { user: req.user.email, title: 'G-O-O-F / ACCOUNT' });
 }
 
 // exports.account = function(req, res) {

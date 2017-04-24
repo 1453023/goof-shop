@@ -1,0 +1,259 @@
+extends ../layouts/admin.pug
+
+block content
+  .content-wrapper
+    section.content-header
+      h1  Dashboard
+      ol.breadcrumb
+      li
+        a(href='#')
+        i.fa.fa-dashboard
+        |  Home
+      li.active Dashboard
+    section.content
+      .row
+      section.col-lg-12.col-xs-12.connectedSortable
+        .nav-tabs-custom
+        ul.nav.nav-tabs.pull-right
+          li
+          a(href='#men-wears', data-toggle='tab') Men&apos;s Wear
+          li.active
+          a(href='#women-wears', data-toggle='tab') Women&apos;s Wear
+          li.pull-left.header
+          i.fa.fa-inbox
+          | Weekly Sales
+        .tab-content.no-padding
+          #men-wears.chart.tab-pane(style='position: relative; height: 300px;')
+          #women-wears.chart.tab-pane.active(style='position: relative; height: 300px;')
+      section.col-lg-7.connectedSortable
+        .box.box-info
+        .box-header.with-border
+          h3.box-title Latest Orders
+          .box-tools.pull-right
+          button.btn.btn-box-tool(type='button', data-widget='collapse')
+            i.fa.fa-minus
+        .box-body
+          .table-responsive
+          table.table.no-margin
+            thead
+            tr
+              th Order ID
+              th Item
+              th Status
+            tbody
+            tr
+              td
+              a(href='pages/examples/invoice.html') OR9842
+              td
+              ol
+                li Nier Automata
+                li Ark
+                li Darkest Dungeon
+              td
+              span.label.label-success Shipping
+            tr
+              td
+              a(href='pages/examples/invoice.html') OR1848
+              td
+              ol
+                li Samsung J7
+                li Samsung S7
+              td
+              span.label.label-warning Pending
+            tr
+              td
+              a(href='pages/examples/invoice.html') OR7429
+              td
+              ol
+                li Iphone 6 Plus
+                li Ipad Air 3
+              td
+              span.label.label-danger Delivered
+            tr
+              td
+              a(href='pages/examples/invoice.html') OR7429
+              td
+              ol
+                li Xiaomi Redmi Note 3
+                li Mi Band 2
+              td
+              span.label.label-info Processing
+        .box-footer.text-center
+          a.uppercase(href='orders.html') View All Orders
+        .box.box-primary
+        .box-header.with-border
+          h3.box-title Recently Added Products
+          .box-tools.pull-right
+          button.btn.btn-box-tool(type='button', data-widget='collapse')
+            i.fa.fa-minus
+        .box-body
+          ul.products-list.product-list-in-box
+          li.item
+            .product-img
+            img(src='#', alt='Product Image')
+            .product-info
+            a.product-title(href='javascript:void(0)')
+              | Samsung TV 
+              span.label.label-warning.pull-right $1800
+            |  
+            span.product-description Samsung 32&quot; 1080p 60Hz LED Smart HDTV.
+          li.item
+            .product-img
+            img(src='#', alt='Product Image')
+            .product-info
+            a.product-title(href='javascript:void(0)')
+              | Bicycle 
+              span.label.label-info.pull-right $700
+            |  
+            span.product-description 26&quot; Mongoose Dolomite Men&apos;s 7-speed, Navy Blue.
+          li.item
+            .product-img
+            img(src='#', alt='Product Image')
+            .product-info
+            a.product-title(href='javascript:void(0)')
+              | Xbox One 
+              span.label.label-danger.pull-right $350
+            |  
+            span.product-description Xbox One Console Bundle with Halo Master Chief Collection.
+          li.item
+            .product-img
+            img(src='#', alt='Product Image')
+            .product-info
+            a.product-title(href='javascript:void(0)')
+              | PlayStation 4 
+              span.label.label-success.pull-right $399
+            |  
+            span.product-description PlayStation 4 500GB Console (PS4)
+        .box-footer.text-center
+          a.uppercase(href='products.html') View All Products
+      section.col-lg-5.connectedSortable
+        .box.box-primary
+        .box-header
+          i.ion.ion-clipboard
+          h3.box-title To Do List
+          .box-tools.pull-right
+          ul.pagination.pagination-sm.inline
+            li
+            a(href='#') &laquo;
+            li
+            a(href='#') 1
+            li
+            a(href='#') 2
+            li
+            a(href='#') 3
+            li
+            a(href='#') &raquo;
+        .box-body
+          ul.todo-list
+          li
+            span.handle
+            i.fa.fa-ellipsis-v
+            i.fa.fa-ellipsis-v
+            |  
+            input(type='checkbox', value='')
+            |  
+            span.text Design a nice theme
+            small.label.label-danger
+            i.fa.fa-clock-o
+            |  2 mins
+            .tools
+            i.fa.fa-edit
+            i.fa.fa-trash-o
+          li
+            span.handle
+            i.fa.fa-ellipsis-v
+            i.fa.fa-ellipsis-v
+            |  
+            input(type='checkbox', value='')
+            |  
+            span.text Make the theme responsive
+            small.label.label-info
+            i.fa.fa-clock-o
+            |  4 hours
+            .tools
+            i.fa.fa-edit
+            i.fa.fa-trash-o
+          li
+            span.handle
+            i.fa.fa-ellipsis-v
+            i.fa.fa-ellipsis-v
+            |  
+            input(type='checkbox', value='')
+            |  
+            span.text Let theme shine like a star
+            small.label.label-warning
+            i.fa.fa-clock-o
+            |  1 day
+            .tools
+            i.fa.fa-edit
+            i.fa.fa-trash-o
+          li
+            span.handle
+            i.fa.fa-ellipsis-v
+            i.fa.fa-ellipsis-v
+            |  
+            input(type='checkbox', value='')
+            |  
+            span.text Let theme shine like a star
+            small.label.label-success
+            i.fa.fa-clock-o
+            |  3 days
+            .tools
+            i.fa.fa-edit
+            i.fa.fa-trash-o
+          li
+            span.handle
+            i.fa.fa-ellipsis-v
+            i.fa.fa-ellipsis-v
+            |  
+            input(type='checkbox', value='')
+            |  
+            span.text Check your messages and notifications
+            small.label.label-primary
+            i.fa.fa-clock-o
+            |  1 week
+            .tools
+            i.fa.fa-edit
+            i.fa.fa-trash-o
+          li
+            span.handle
+            i.fa.fa-ellipsis-v
+            i.fa.fa-ellipsis-v
+            |  
+            input(type='checkbox', value='')
+            |  
+            span.text Let theme shine like a star
+            small.label.label-default
+            i.fa.fa-clock-o
+            |  1 month
+            .tools
+            i.fa.fa-edit
+            i.fa.fa-trash-o
+        .box-footer.clearfix.no-border
+          button.btn.btn-default.pull-right(type='button')
+          i.fa.fa-plus
+          |  Add item
+        .box.box-solid.bg-green-gradient
+        .box-header
+          i.fa.fa-calendar
+          h3.box-title Calendar
+          .pull-right.box-tools
+          .btn-group
+            button.btn.btn-success.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown')
+            i.fa.fa-bars
+            ul.dropdown-menu.pull-right(role='menu')
+            li
+              a(href='#') Add new event
+            li
+              a(href='#') Clear events
+            li.divider
+            li
+              a(href='#') View calendar
+          |  
+          button.btn.btn-success.btn-sm(type='button', data-widget='collapse')
+            i.fa.fa-minus
+          |  
+          button.btn.btn-success.btn-sm(type='button', data-widget='remove')
+            i.fa.fa-times
+        .box-body.no-padding
+          #calendar(style='width: 100%')

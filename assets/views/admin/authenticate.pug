@@ -1,0 +1,13 @@
+extends ../layouts/home.pug
+
+block content
+  .login
+    .login-triangle
+    h2.login-header Admin - Log in
+    form(action="/admin/login", method="POST", role="form").login-container
+      p
+        input(type='email',name="email", placeholder='Email')
+      p
+        input(type='password', name="password", placeholder='Password')
+      p
+        input(type='submit', value='Log in')

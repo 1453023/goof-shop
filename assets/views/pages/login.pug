@@ -53,12 +53,12 @@ block main
           .form-group
             ul#input-gender
               li
-                input#male(type='radio', name='gender', required='')
+                input#male(type='radio', name='gender', value="1", required='')
                 |  
                 label(for='male') Male
                 .check
               li
-                input#female(type='radio', name='gender')
+                input#female(type='radio', value="0", name='gender')
                 |  
                 label(for='female') Female
                 .check
