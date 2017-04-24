@@ -13,18 +13,26 @@ exports.login = function(req, res) {
 exports.register = function(req, res) {
     db.Accounts.find({ where: { email: req.body.email } }).then(function(user) {
         if (!user) {
-            db.Accounts.create({
-                email: req.body.email,
-                password: req.body.password,
-                gender: req.body.gender,
-                region: req.body.region,
-                subscribe: req.body.subscribe
-            }).error(function(err) {
-                console.log(err);
-            });
-            passport.authenticate('local.login')(req, res, function() {
-                res.redirect('/shop_men')
-            })
+            db.Accounts
+                .create({
+                    email: req.body.email,
+                    password: req.body.password,
+                    gender: req.body.gender,
+                    region: req.body.region,
+                    subscribe: req.body.subscribe
+                })
+                .then(function(err) {
+                    if (err)
+                        throw err
+                    else {
+                        passport.authenticate('local.login')(req, res, function() {
+                            res.redirect('/shop_men')
+                        })
+                    }
+                }).catch(function(err) {
+                    console.log(err)
+                });
+
         } else {
             req.flash('error', 'Email has already been used');
             res.redirect('/login');
