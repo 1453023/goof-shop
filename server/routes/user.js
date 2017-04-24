@@ -1,4 +1,5 @@
-var db = require('../models');
+var db = require('../models'),
+    passport = require('passport');
 
 exports.login = function(req, res) {
     // req.flash('err', 'Invalid username or password.');
@@ -12,7 +13,13 @@ exports.login = function(req, res) {
 exports.register = function(req, res) {
     db.Accounts.find({ where: { email: req.body.email } }).then(function(user) {
         if (!user) {
-            db.Accounts.create({ email: req.body.email, password: req.body.password, gender: req.body.gender, region: req.body.region, subscribe: req.body.subscribe }).error(function(err) {
+            db.Accounts.create({
+                email: req.body.email,
+                password: req.body.password,
+                gender: req.body.gender,
+                region: req.body.region,
+                subscribe: req.body.subscribe
+            }).error(function(err) {
                 console.log(err);
             });
         } else {
@@ -20,7 +27,9 @@ exports.register = function(req, res) {
             res.redirect('/login');
         }
     });
-    return res.redirect('/shop_men')
+    passport.authenticate('local.login')(req, res, function() {
+        res.redirect('/shop_men')
+    })
 };
 
 exports.update = function(req, res) {

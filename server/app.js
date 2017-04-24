@@ -75,27 +75,7 @@ app.post('/authenticate',
     }));
 app.get('/logout', application.destroySession);
 app.get('/account', application.IsAuthenticated, main.account);
-app.post('/register', function(err, res, req) {
-    db.Accounts.find({ where: { email: req.body.email } }).then(function(user) {
-        if (!user) {
-            db.Accounts
-                .create({
-                    email: req.body.email,
-                    password: req.body.password,
-                    gender: req.body.gender,
-                    region: req.body.region,
-                    subscribe: req.body.subscribe
-                })
-                .error(function(err) {
-                    console.log(err);
-                });
-        } else {
-            req.flash('error', 'Email has already been used');
-            res.redirect('/login');
-        }
-    });
-    passport.authenticate('local.login', { successRedirect: '/shop_men' });
-});
+app.post('/register', user.register);
 // app.get('/search', application.IsAuthenticated, home.search);
 
 // catch 404 and forward to error handler
