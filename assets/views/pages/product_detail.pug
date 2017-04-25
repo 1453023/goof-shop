@@ -1,0 +1,82 @@
+extends ../layouts/main.pug
+
+block sidebar
+  .sidebar
+    b Genders
+    ul.sidebar-nav
+      li.active
+        a(href='#') Men
+      li
+        a(href='#') Women
+    |  
+    b Collections
+    ul.sidebar-nav
+      li
+        a(href='#') Season &apos;17
+      li
+        a(href='#') Season &apos;16
+    b Categories
+    ul#filter-type.sidebar-nav
+      li
+        a(href='#') Jacket
+      li
+        a(href='#') Sweatshirt
+      li
+        a(href='#') Shirt
+      li
+        a(href='#') T-shirt
+      li
+        a(href='#') Tanks
+      li
+        a(href='#') Pants
+      li
+        a(href='#') Socks
+      li
+        a(href='#') Accessories
+      li.active
+        a(href='') All
+
+block main
+  .new-product
+    .col-md-6
+      .product-image-view.clearfix
+      .product-images
+        #product-images.product-big-view.carousel.slide(data-ride='carousel')
+        .carousel-inner
+          each item in detail.lgImgUrl
+          .item
+            img.lightbox.cboxElement(alt='', src= item)          
+        .product-thumb.hidden-xs
+        each item in detail.smImgUrl
+          a.active(data-slide-to='0', data-target='#product-images')
+            img(itemprop='image', src= item)
+    .col-md-6.dress-info
+      .dress-name
+      h2= detail.name
+      br
+      br
+      h3= 'VND ' + detail.price
+      .clearfix
+      p= detail.description
+      .span.span1
+      p.left MATERIAL
+      p.right 100% Leather
+      .clearfix
+      .span.span2
+      p.left COLOR
+      p.right Black
+      .clearfix
+      .span.span3
+      p.left SIZE
+      p.right
+        span.selection-box
+        select.domains.valid(name='domains')
+          option XL
+          option L
+          option M
+          option S
+          option XS
+      .clearfix
+      script(defer='', src='../../assets/js/jquery.flexslider.js')
+    .clearfix
+    .clearfix

@@ -96,6 +96,7 @@ app.get('/', routes.index);
 app.get('/shop_men', main.shop_men);
 app.get('/contacts', main.contacts);
 app.get('/shopping_cart', main.cart);
+app.get('/products/:id', main.product_detail);
 
 app.get('/login', csrfProtection, user.login);
 // app.post('/account/update', application.IsAuthenticated, user.update);
@@ -117,7 +118,7 @@ app.post('/admin/login',
         failureRedirect: '/admin'
     }));
 app.get('/admin/dashboard', application.IsAuthenticated, admin.dashboard)
-    // app.get('/search', application.IsAuthenticated, home.search);
+app.post('/search', main.search);
 
 // app.post('/product_img/upload', upload.array('photos'))
 

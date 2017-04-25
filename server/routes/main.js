@@ -17,15 +17,25 @@ exports.shop_men = function(req, res) {
 
 }
 
+exports.product_detail = function(req, res) {
+    db.products.findOne({ where: { id: req.param.id } }).then(function(detail) {
+        if (req.user) {
+            res.render("pages/shop", { user: req.user.email, detail: detail, title: 'G-O-O-F / DETAIL' });
+        } else {
+            res.render("pages/shop", { user: "", detail: detail, title: 'G-O-O-F / DETAIL' });
+        }
+    })
+}
+
 exports.cart = function(req, res) {
     db.cart.findAll({
         attributes: [name, price, smImgUrl, amount],
         include: [db.products]
     }).then(function(cart) {
         if (req.user) {
-            res.render("pages/shoping_cart", { user: req.user.email, cart: cart, title: 'G-O-O-F / MEN' });
+            res.render("pages/shoping_cart", { user: req.user.email, cart: cart, title: 'G-O-O-F / CART' });
         } else {
-            res.render("pages/shopping_cart", { user: "", cart: cart, title: 'G-O-O-F / MEN' });
+            res.render("pages/shopping_cart", { user: "", cart: cart, title: 'G-O-O-F / CART' });
         }
     })
 }
@@ -51,14 +61,23 @@ exports.search = function(req, res) {
     users = [];
     if (req.query.q) {
         q = req.query.q;
-        db.Accounts.findAll({ attributes: ['id', 'username'], where: { username: { like: '%' + req.query.q + '%' } } }).success(function(users) {
+        db.products.findAll({ attributes: ['id', 'username'], where: { username: { like: '%' + req.query.q + '%' } } }).success(function(products) {
             //console.log('Users:', users)
-            res.render("search.ejs", { q: q, username: req.user.username, users: users });
+            // res.render("/shop_men", { q: q, username: req.user.username, users: users });
+            if (req.user) {
+                res.render("pages/shop", { user: req.user.email, products: products, title: 'G-O-O-F / MEN' });
+            } else {
+                res.render("pages/shop", { user: "", products: products, title: 'G-O-O-F / MEN' });
+            }
         });
     } else {
-        db.Accounts.findAll().then(function(users) {
+        db.products.findAll().then(function(products) {
             //console.log('Users:', users)
-            res.render("search.ejs", { q: q, username: req.user.username, users: users });
+            if (req.user) {
+                res.render("pages/shop", { user: req.user.email, products: products, title: 'G-O-O-F / MEN' });
+            } else {
+                res.render("pages/shop", { user: "", products: products, title: 'G-O-O-F / MEN' });
+            }
         });
     }
     //res.render("search.ejs", { q: q, username: req.user.username, users: users })
