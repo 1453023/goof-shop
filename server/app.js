@@ -96,7 +96,7 @@ app.get('/', routes.index);
 app.get('/shop_men', main.shop_men);
 app.get('/contacts', main.contacts);
 app.get('/shopping_cart', main.cart);
-app.get('/products/:id', main.product_detail);
+app.get('/product_detail/:id', main.product_detail);
 
 app.get('/login', csrfProtection, user.login);
 // app.post('/account/update', application.IsAuthenticated, user.update);

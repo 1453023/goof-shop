@@ -40,7 +40,7 @@ block main
     each item in products
       .col-md-4.col-sm-6
         .product-block
-          a.img-block(href='../details/jacket_1.html')
+          a.img-block(href='/product_detail/'+ item.id)
             img.main-thumb(src= item.thumbImgUrl[0], alt= item.category)
           .title-block
             a(href='#')= item.name
