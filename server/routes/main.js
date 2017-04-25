@@ -18,7 +18,10 @@ exports.shop_men = function(req, res) {
 }
 
 exports.cart = function(req, res) {
-    db.cart.findAll({ attributes: [name, price, smImgUrl, amount] }, include: [db.products]).then(function(cart) {
+    db.cart.findAll({
+        attributes: [name, price, smImgUrl, amount],
+        include: [db.products]
+    }).then(function(cart) {
         if (req.user) {
             res.render("pages/shoping_cart", { user: req.user.email, cart: cart, title: 'G-O-O-F / MEN' });
         } else {
