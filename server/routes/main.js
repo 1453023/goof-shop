@@ -17,6 +17,16 @@ exports.shop_men = function(req, res) {
 
 }
 
+exports.cart = function(req, res) {
+    db.cart.findAll({ attributes: [name, price, smImgUrl, amount] }, include: [db.products]).then(function(cart) {
+        if (req.user) {
+            res.render("pages/shoping_cart", { user: req.user.email, cart: cart, title: 'G-O-O-F / MEN' });
+        } else {
+            res.render("pages/shopping_cart", { user: "", cart: cart, title: 'G-O-O-F / MEN' });
+        }
+    })
+}
+
 exports.contacts = function(req, res) {
     if (req.user) {
         res.render("pages/contacts", { user: req.user.email, title: "G-O-O-F / CONTACTS" });

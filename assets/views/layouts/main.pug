@@ -33,24 +33,12 @@ block content
   #cd-cart
     h2 Shopping bag
     ul.cd-cart-items
-      li
-        span.cd-qty 1x
-        |  Product Name
-        .cd-price $9.99
-        a.cd-item-remove.cd-img-replace(href='#0')
-          i.fa.fa-times
-      li
-        span.cd-qty 2x
-        |  Product Name
-        .cd-price $19.98
-        a.cd-item-remove.cd-img-replace(href='#0')
-          i.fa.fa-times
-      li
-        span.cd-qty 1x
-        |  Product Name
-        .cd-price $9.99
-        a.cd-item-remove.cd-img-replace(href='#0')
-          i.fa.fa-times
+      each item in cart
+        li
+          span.cd-qty= item.amount + ' x' + item.name
+          .cd-price= item.price
+          a.cd-item-remove.cd-img-replace(href='#0')
+            i.fa.fa-times
     .cd-cart-total
       p
         | Subtotal 
@@ -58,7 +46,7 @@ block content
     |  
     a.checkout-btn(href='#0') Checkout
     p.cd-go-to-cart
-      a(href='shopping_cart.html') Go to bag detail
+      a(href='/shopping_cart') Go to bag detail
   .container-fluid.goof-container
     .col-md-2.col-sm-2
       .navToggle

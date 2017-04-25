@@ -95,6 +95,8 @@ app.use(passport.session());
 app.get('/', routes.index);
 app.get('/shop_men', main.shop_men);
 app.get('/contacts', main.contacts);
+app.get('/shopping_cart', main.cart);
+
 app.get('/login', csrfProtection, user.login);
 // app.post('/account/update', application.IsAuthenticated, user.update);
 app.post('/authenticate',
@@ -106,6 +108,8 @@ app.post('/authenticate',
 app.get('/logout', application.destroySession);
 app.get('/account', application.IsAuthenticated, main.account);
 app.post('/register', user.register);
+
+
 app.get('/admin', admin.authenticate);
 app.post('/admin/login',
     passport.authenticate('local.admin', {
