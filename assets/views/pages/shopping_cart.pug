@@ -22,13 +22,13 @@ block content
               li.items.odd
                 .infoWrap
                   .cartSection
-                    img.itemImg(src= item.product.smImgUrl[0], alt='')
-                    p.itemNumber= item.product.id
-                    h3= item.product.name
+                    img.itemImg(src= item.smImgUrl[0], alt='')
+                    p.itemNumber= item.id
+                    h3= item.name
                     p
-                      span.qty= item.amount + ' x ' + item.product.price + ' VND'
+                      span.qty= item.amount + ' x ' + item.price + ' VND'
                   .prodTotal.cartSection
-                    - function calcItemPrice(){var itemTotalPrice = item.product.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
+                    - function calcItemPrice(){var itemTotalPrice = item.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
                       p= calcItemPrice()
                   .cartSection.removeWrap
                     a.remove(href='#') x
