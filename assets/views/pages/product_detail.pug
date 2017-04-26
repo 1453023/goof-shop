@@ -43,9 +43,9 @@ block main
       .product-images
         #product-images.product-big-view.carousel.slide(data-ride='carousel')
         .carousel-inner
-          each item in detail.lgImgUrl
+        each item in detail.lgImgUrl
           .item
-            img.lightbox.cboxElement(alt='', src= item)          
+            img.lightbox.cboxElement(alt='', src= item)
         .product-thumb.hidden-xs
         each item in detail.smImgUrl
           a.active(data-slide-to='0', data-target='#product-images')
