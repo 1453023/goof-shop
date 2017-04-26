@@ -18,7 +18,7 @@ exports.shop_men = function(req, res) {
 }
 
 exports.product_detail = function(req, res) {
-    db.products.findOne({ id: req.params.id }).then(function(detail) {
+    db.products.find({ where: { id: req.params.id } }).then(function(detail) {
         if (req.user) {
             res.render("pages/product_detail", { user: req.user.email, detail: detail, title: 'G-O-O-F / DETAIL' });
         } else {
