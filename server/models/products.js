@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
-                products.hasMany(models.cart);
+                products.hasMany(models.cart, { foreignkey: 'product_id' });
             }
         }
     });
