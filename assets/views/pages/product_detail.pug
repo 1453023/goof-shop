@@ -56,7 +56,7 @@ block main
             a.active(data-slide-to='0', data-target='#product-images')
               img(itemprop='image', src= detail.smImgUrl[0])
             - for (var i = 1; i < detail.smImgUrl.length; i++)
-              a(data-slide-to='0', data-target='#product-images')
+              a(data-slide-to= i, data-target='#product-images')
                 img(itemprop='image', src= detail.smImgUrl[i])
     .col-md-6.dress-info
       .dress-name
