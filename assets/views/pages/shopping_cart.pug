@@ -7,45 +7,40 @@ block content
   .col-sm-10
     .wrapper.cf
       .heading.cf
-      h1 My Cart
-      |  
-      a.continue(href='#') Continue Shopping
-      .cart
-      ul.tableHead
-        li.prodHeader Product
-        li Quantity
-        li Total
-        li Remove
-      ul#list.cartWrap
-        each item in cart
-          li.items
-          .infoWrap
-            .cartSection
-            img.itemImg(src= item.product.smImgUrl[0], alt='')
-            h3= item.product.name
-            p#price
-              span#quantity.qty= item.amount ' x VND ' + item.product.price
-            .prodTotal.cartSection
-            p#total
-            .cartSection.removeWrap
-            a.remove(href='#', data-id='') x
-      .promoCode
-      label(for='promo') Have A Promo Code?
-      input(type='text', name='promo', placholder='Enter Code')
-      a.btn(href='/remove')
-      .subtotal.cf
-      ul
-        li.totalRow
-        span.label Subtotal
-        span.value#subtotal $35.00
-        li.totalRow
-        span.label Shipping
-        span.value $5.00
-        li.totalRow
-        span.label Tax
-        span.value $4.00
-        li.totalRow.final
-        span.label Total
-        span.value $44.00
-        li.totalRow
-        a.btn.continue(href='#') Checkout
+        h1 My Cart
+        |  
+        a.continue(href='/shop_men') Continue Shopping
+      - var subTotalPrice = 0
+        .cart
+          ul.tableHead
+            li.prodHeader Product
+            li Quantity
+            li Total
+            li Remove
+          ul.cartWrap
+            each item in cart
+              li.items.odd
+                .infoWrap
+                  .cartSection
+                    img.itemImg(src= item.product.smImgUrl[0], alt='')
+                    p.itemNumber= item.product.id
+                    h3= item.product.name
+                    p
+                      span.qty= item.amount + ' x ' + item.product.price + ' VND'
+                  .prodTotal.cartSection
+                    - function calcItemPrice(){var itemTotalPrice = item.product.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
+                      p= calcItemPrice()
+                  .cartSection.removeWrap
+                    a.remove(href='#') x
+        .promoCode
+          label(for='promo') Have A Promo Code?
+          input(type='text', name='promo', placholder='Enter Code')
+          a.btn(href='#')
+        .subtotal.cf
+          ul
+            li.totalRow.final
+              span.label Subtotal
+              span.value= subTotalPrice
+            li.totalRow
+              a.btn.continue(href='#') Checkout
+
