@@ -54,10 +54,10 @@ block main
                   img.lightbox.cboxElement(alt='', src= detail.lgImgUrl[i])
           .product-thumb.hidden-xs
             a.active(data-slide-to='0', data-target='#product-images')
-              img(itemprop='image', src=item)
+              img(itemprop='image', src= detail.smImgUrl[0])
             - for (var i = 1; i < detail.smImgUrl.length; i++)
               a(data-slide-to='0', data-target='#product-images')
-                img(itemprop='image', src=item)
+                img(itemprop='image', src= detail.smImgUrl[i])
     .col-md-6.dress-info
       .dress-name
         h2= detail.name
