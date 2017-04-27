@@ -36,7 +36,7 @@ block content
       ul.cd-cart-items
         each item in session.cart
           li
-            span.cd-qty= session.cart.qty + ' x ' + session.cart.item.name
+            span.cd-qty= session.cart.qty + ' x ' + session.cart.items.name
             .cd-price= session.cart.price
             a.cd-item-remove.cd-img-replace(href='#0')
               i.fa.fa-times
