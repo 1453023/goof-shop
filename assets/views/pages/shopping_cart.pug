@@ -4,47 +4,52 @@ block link
   link(href='/css/shopping_cart.css', rel='stylesheet')
 
 block main
+  
   .col-sm-10
     .wrapper.cf
       .heading.cf
-        h1 My Cart
-        |  
-        a.continue(href='/shop_men') Continue Shopping
-      - var subTotalPrice = 0
-        .cart
-          table
-            tr
-              td Product
-              td Quantity
-              td Unit Price
-              td Total
-              td
-            each item in cart
+        if products
+          h1 My Cart
+          |  
+          a.continue(href='/shop_men') Continue Shopping
+          .cart
+            table
               tr
-                td.item
-                  img.itemImg(src= item.product.smImgUrl[0], alt='')
-                  .info-block
-                    p.itemNumber= item.id
-                    h3= item.product.name
+                td Product
+                td Quantity
+                td Unit Price
+                td Total
                 td
-                  p.qty= item.amount
-                td
-                  p= item.product.price + 'VND'
-                td.prodTotal.cartSection
-                  - function calcItemPrice(){var itemTotalPrice = item.product.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
-                    p= calcItemPrice()
-                td.cartSection.removeWrap
-                  a.remove(href='#') x
-        .promoCode
-          label(for='promo') Have A Promo Code?
-          input(type='text', name='promo', placholder='Enter Code')
-          a.btn(href='#')
-        .subtotal.cf
-          ul
-            li.totalRow.final
-              span.label Subtotal
-              span.value= subTotalPrice
-            li.totalRow
-              a.btn.continue(href='#') Checkout
+              each item in products
+                tr
+                  td.item
+                    img.itemImg(src= item.item.smImgUrl[0], alt='')
+                    .info-block
+                      p.itemNumber= '#' + item.item.id
+                      h3= item.item.name
+                  td
+                    p.qty= item.qty
+                  td
+                    p= item.item.price + 'VND'
+                  td.prodTotal.cartSection
+                    //- - function calcItemPrice(){var itemTotalPrice = item.product.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
+                    p= item.price
+                  td.cartSection.removeWrap
+                    a.remove(href='#') x
+          .promoCode
+            label(for='promo') Have A Promo Code?
+            input(type='text', name='promo', placholder='Enter Code')
+            a.btn(href='#')
+          .subtotal.cf
+            ul
+              li.totalRow.final
+                span.label Subtotal
+                span.value= item.totalPrice
+              li.totalRow
+                a.btn.continue(href='#') Checkout
+        else
+          h1 Your cart is empty
+          |
+          a.continue(href='/shop_men') Continue Shopping
             
 

@@ -28,14 +28,19 @@ exports.product_detail = function(req, res) {
 }
 
 exports.cart = function(req, res) {
-    db.cart.findAll({ include: [db.products] }).then(function(cart) {
-        req.session.cart = cart
-        if (req.user) {
-            res.render("pages/shoping_cart", { user: req.user.email, cart: cart, title: 'G-O-O-F / CART' });
-        } else {
-            res.render("pages/shopping_cart", { user: "", cart: cart, title: 'G-O-O-F / CART' });
-        }
-    })
+    // db.cart.findAll({ include: [db.products] }).then(function(cart) {
+    //     req.session.cart = cart
+    //     if (req.user) {
+    //         res.render("pages/shoping_cart", { user: req.user.email, cart: cart, title: 'G-O-O-F / CART' });
+    //     } else {
+    //         res.render("pages/shopping_cart", { user: "", cart: cart, title: 'G-O-O-F / CART' });
+    //     }
+    // })
+    if (!req.session.cart) {
+        return res.render('pages/shopping_cart', { products: null });
+    }
+    var cart = new Cart(req.session.cart);
+    res.render('pages/shopping_cart', { products: cart.generateArray(), totalPrice: cart.totalPrice });
 }
 
 function Cart(oldCart) {
