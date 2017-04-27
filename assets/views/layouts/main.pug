@@ -14,8 +14,8 @@ block content
               i.fa.fa-times(aria-hidden='true')
         li.bag-count
           a#cd-cart-trigger(href='#')
-            span.bag-text= 'Bag (' + session.cart.total + ')'
-            span.bag-icon= session.cart.total
+            span.bag-text= 'Bag (' + session.cart.totalQty + ')'
+            span.bag-icon= session.cart.totalQty
         if user
           li#user-display
             a.dropdown-toggle(href='#', role='button', data-toggle='dropdown')
