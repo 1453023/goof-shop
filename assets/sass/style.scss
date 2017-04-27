@@ -490,6 +490,9 @@ a {
             &:last-child {
                 border-bottom: 1px solid #ccc;
             }
+            img.bag-preview {
+                width: 25%;
+            }
         }
     }
     .cd-qty {

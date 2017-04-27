@@ -376,6 +376,8 @@ a {
       border-top: 1px solid #ccc; }
       #cd-cart .cd-cart-items li:last-child {
         border-bottom: 1px solid #ccc; }
+      #cd-cart .cd-cart-items li img.bag-preview {
+        width: 25%; }
   #cd-cart .cd-qty {
     color: #555; }
   #cd-cart .cd-price {
