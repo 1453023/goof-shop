@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
 html,
 body,
+p,
 {
     margin: 0;
     padding: 0;
@@ -297,11 +298,11 @@ a.remove {
     color: #ffffff;
     font-weight: bold;
     background: #e0e0e0;
-    padding: .5em;
+    padding: .5em .738em;
     font-size: .75em;
     display: inline-block;
     border-radius: 100%;
-    line-height: .85;
+    line-height: 15;
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     -ms-transition: all 0.25s linear;
@@ -454,7 +455,7 @@ table tr:last-child td {
     border-bottom: none;
 }
 
-table tr:last-child td {
+table tr:first-child td {
     border-bottom-color: #d0d0d0;
 }
 
