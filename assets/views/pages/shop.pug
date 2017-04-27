@@ -37,6 +37,9 @@ block sidebar
         a(href='') All
 block main
   .col-md-10.col-sm-10
+    .row
+      .col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
+        #success.alert.alert-success(class= message ? 'hidden' : '')= message
     each item in products
       .col-md-4.col-sm-6
         .product-block

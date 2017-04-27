@@ -7,11 +7,12 @@ var db = require('../models'),
 
 exports.shop_men = function(req, res) {
     // var img_list = app.dirTree(app.img_path);
+    var message = req.flash('success')[0];
     db.products.findAll().then(function(products) {
         if (req.user) {
-            res.render("pages/shop", { user: req.user.email, products: products, title: 'G-O-O-F / MEN' });
+            res.render("pages/shop", { user: req.user.email, message: message, products: products, title: 'G-O-O-F / MEN' });
         } else {
-            res.render("pages/shop", { user: "", products: products, title: 'G-O-O-F / MEN' });
+            res.render("pages/shop", { user: "", message: message, products: products, title: 'G-O-O-F / MEN' });
         }
     })
 
@@ -72,12 +73,46 @@ exports.add_cart = function(req, res, next) {
     });
 }
 
-exports.checkout = function(req, res) {
+exports.render_checkout = function(req, res) {
     if (!req.session.cart) {
         return res.render('pages/checkout', { products: null });
     }
     var cart = new Cart(req.session.cart);
-    res.render('pages/checkout', { title: 'G-O-O-F / CHECKOUT', totalPrice: cart.totalPrice });
+    var message = req.flash('err')[0];
+    res.render('pages/checkout', { title: 'G-O-O-F / CHECKOUT', totalPrice: cart.totalPrice, message: message });
+}
+
+exports.handle_checkout = function(req, res) {
+    if (!req.session.cart) {
+        return res.render('pages/checkout', { products: null });
+    }
+    var stripe = require("stripe")(
+        "sk_test_X3LZZNibhdALNhuprTb9i4uH"
+    );
+
+    stripe.charges.create({
+        amount: cart.totalPrice * 1000,
+        currency: "vnd",
+        source: req.body.stripeToken, // obtained with Stripe.js
+        description: "Test Charge"
+    }, function(err, charge) {
+        if (err) {
+            req.flash('error', err.message);
+            return res.redirect('/checkout');
+        }
+        var order = new Order({
+            user: req.user,
+            cart: cart,
+            address: req.body.address,
+            name: req.body.name,
+            paymentId: charge.id
+        });
+        order.save(function(err, result) {
+            req.flash('success', 'Successfully bought product!');
+            req.session.cart = null;
+            res.redirect('/');
+        });
+    });
 }
 
 exports.contacts = function(req, res) {

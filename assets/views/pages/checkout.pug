@@ -4,10 +4,11 @@ block main
     .col-sm-10.col-xs-8
       .row
         .col-xs-6.col-xs-offset-3
-          form#form-create.goof-form(action='/register', method='POST', role='form')
+          form#form-checkout.goof-form(action='/checkout', method='POST', role='form')
             legend Checkout
             br
             span= 'YOUR TOTAL:  ' totalPrice + ' VND'
+            #charge-error.alert.alert-danger(class= message ? 'hidden' : '' )= message
             .form-group
               label(for='') Full Name
               |  
@@ -44,3 +45,7 @@ block main
               |  
               input#card-cvc.form-control(type='text', required='')
             button.btn.form-btn(type='submit') Checkout
+
+block script
+  script(type='text/javascript', src='https://js.stripe.com/v2/')
+  script(type='text/javascript', src='/js/checkout.js')
