@@ -53,7 +53,7 @@ app.use(cors());
 app.use(session({
     secret: 'goatjsformakebettersecurity',
     store: new SequelizeStore({
-        db: db,
+        db: db.sequelize,
         checkExpirationInterval: 15 * 60 * 1000, // The interval at which to cleanup expired sessions in milliseconds.
         expiration: 180 * 60 * 1000 // The maximum age (in milliseconds) of a valid session.
     }),
