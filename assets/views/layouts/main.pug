@@ -36,6 +36,7 @@ block content
       ul.cd-cart-items
         each item in session.cart.items
           li
+            img.bag-preview(src= item.item.smImgUrl[0])
             span.cd-qty= item.qty + ' x ' + item.item.name
             .cd-price= item.price
             a.cd-item-remove.cd-img-replace(href='#0')
