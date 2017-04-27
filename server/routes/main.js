@@ -32,7 +32,7 @@ exports.cart = function(req, res) {
         return res.render('pages/shopping_cart', { products: null });
     }
     var cart = new Cart(req.session.cart);
-    res.render('pages/shopping_cart', { products: cart.generateArray(), totalPrice: cart.totalPrice });
+    res.render('pages/shopping_cart', { title: 'G-O-O-F / CART', products: cart.generateArray(), totalPrice: cart.totalPrice });
 }
 
 function Cart(oldCart) {
@@ -77,7 +77,7 @@ exports.checkout = function(req, res) {
         return res.render('pages/checkout', { products: null });
     }
     var cart = new Cart(req.session.cart);
-    res.render('pages/checkout', { totalPrice: cart.totalPrice });
+    res.render('pages/checkout', { title: 'G-O-O-F / CHECKOUT', totalPrice: cart.totalPrice });
 }
 
 exports.contacts = function(req, res) {
