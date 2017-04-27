@@ -57,12 +57,9 @@ passport.use('local.register', new LocalStrategy({
             gender: req.body.gender,
             region: req.body.region,
             subscribe: req.body.subscribe
-        }).then(function(err, user) {
-            if (err) {
-                console.log(err);
-                return done(err);
-            }
-            return done(null, user);
+        }).error(function(err) {
+            console.log(err);
+            return done(err);
         })
     });
 }));
