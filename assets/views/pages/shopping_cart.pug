@@ -12,26 +12,48 @@ block main
         a.continue(href='/shop_men') Continue Shopping
       - var subTotalPrice = 0
         .cart
-          ul.tableHead
-            li.prodHeader Product
-            li Quantity
-            li Total
-            li Remove
-          ul.cartWrap
+          table
+            tr.tableHead
+              td Product
+              td Quantity
+              td Unit Price
+              td Total
+              td
             each item in cart
-              li.items.odd
-                .infoWrap
-                  .cartSection
-                    img.itemImg(src= item.product.smImgUrl[0], alt='')
-                    p.itemNumber= item.id
-                    h3= item.product.name
-                    p
-                      span.qty= item.amount + ' x ' + item.product.price + ' VND'
-                  .prodTotal.cartSection
-                    - function calcItemPrice(){var itemTotalPrice = item.product.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
-                      p= calcItemPrice()
-                  .cartSection.removeWrap
-                    a.remove(href='#') x
+              tr
+                td.item
+                  img.itemImg(src= item.product.smImgUrl[0], alt='')
+                  p.itemNumber= item.id
+                  h3= item.product.name
+                td
+                  p.qty= item.amount
+                td
+                  p= item.product.price + 'VND'
+                td.prodTotal.cartSection
+                  - function calcItemPrice(){var itemTotalPrice = item.product.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
+                    p= calcItemPrice()
+                td.cartSection.removeWrap
+                  a.remove(href='#') x
+          //- ul.tableHead
+          //-   li.prodHeader Product
+          //-   li Quantity
+          //-   li Total
+          //-   li Remove
+          //- ul.cartWrap
+          //-   each item in cart
+          //-     li.items.odd
+          //-       .infoWrap
+          //-         .cartSection
+          //-           img.itemImg(src= item.product.smImgUrl[0], alt='')
+          //-           p.itemNumber= item.id
+          //-           h3= item.product.name
+          //-           p
+          //-             span.qty= item.amount + ' x ' + item.product.price + ' VND'
+          //-         .prodTotal.cartSection
+          //-           - function calcItemPrice(){var itemTotalPrice = item.product.price * item.amount; subTotalPrice += itemTotalPrice; return itemTotalPrice;};
+          //-             p= calcItemPrice()
+          //-         .cartSection.removeWrap
+          //-           a.remove(href='#') x
         .promoCode
           label(for='promo') Have A Promo Code?
           input(type='text', name='promo', placholder='Enter Code')
