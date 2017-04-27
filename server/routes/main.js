@@ -48,7 +48,7 @@ function Cart(oldCart) {
         storedItem.qty++;
         storedItem.price = parseInt(storedItem.item.price) * storedItem.qty;
         this.totalQty++;
-        this.totalPrice += parseInt(storedItem.item.price);
+        this.totalPrice += storedItem.price;
     };
 
     this.generateArray = function() {

@@ -41,7 +41,10 @@ block content
         each item in session.cart.items
           li
             img.bag-preview(src= item.item.smImgUrl[0])
-            span.cd-info= item.qty + ' x ' + item.item.name + '<br>' + item.price
+            span.cd-info= item.qty + ' x ' + item.item.name 
+            |
+            br
+            | item.price + ' VND'
             a.cd-item-remove.cd-img-replace(href='#0')
               i.fa.fa-times
       .cd-cart-total
