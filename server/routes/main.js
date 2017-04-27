@@ -8,7 +8,7 @@ var db = require('../models'),
 exports.shop_men = function(req, res) {
     // var img_list = app.dirTree(app.img_path);
     db.products.findAll().then(function(products) {
-        console.log(req.cart);
+        console.log(req.body);
         if (req.user) {
             res.render("pages/shop", { user: req.user.email, products: products, title: 'G-O-O-F / MEN' });
         } else {
@@ -35,7 +35,7 @@ exports.cart = function(req, res) {
             console.log(req.cart);
         } else {
             res.render("pages/shopping_cart", { user: "", cart: cart, title: 'G-O-O-F / CART' });
-            console.log(req.cart);
+            console.log(req.body);
         }
     })
 }

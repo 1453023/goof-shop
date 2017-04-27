@@ -13,7 +13,7 @@ block main
       - var subTotalPrice = 0
         .cart
           table
-            tr.tableHead
+            tr
               td Product
               td Quantity
               td Unit Price
@@ -23,8 +23,9 @@ block main
               tr
                 td.item
                   img.itemImg(src= item.product.smImgUrl[0], alt='')
-                  p.itemNumber= item.id
-                  h3= item.product.name
+                  .info-block
+                    p.itemNumber= item.id
+                    h3= item.product.name
                 td
                   p.qty= item.amount
                 td
