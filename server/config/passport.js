@@ -30,7 +30,9 @@ passport.use('local.register', new LocalStrategy({
         });
         return done(null, false, req.flash('error', messages));
     }
-    db.Accounts.find({ email: email }).then(function(err, user) {
+    db.Accounts.find({
+        where: { email: email, $and: { email: { $notILike: "admin%" } } }
+    }).then(function(err, user) {
         if (err) {
             console.log(err);
             return done(err);
@@ -58,7 +60,7 @@ passport.use('local.register', new LocalStrategy({
             region: req.body.region,
             subscribe: req.body.subscribe
         }).error(function(err) {
-            console.log(err);
+            // console.log(err);
             return done(err);
         })
     });
