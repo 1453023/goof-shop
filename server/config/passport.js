@@ -30,7 +30,7 @@ passport.use('local.register', new LocalStrategy({
         });
         return done(null, false, req.flash('error', messages));
     }
-    db.Accounts.find({ email: email }, function(err, user) {
+    db.Accounts.find({ email: email }).then(function(err, user) {
         if (err) {
             return done(err);
         }
