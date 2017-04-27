@@ -32,6 +32,7 @@ passport.use('local.register', new LocalStrategy({
     }
     db.Accounts.find({ email: email }).then(function(err, user) {
         if (err) {
+            console.log(err);
             return done(err);
         }
         if (user) {
@@ -45,6 +46,7 @@ passport.use('local.register', new LocalStrategy({
         newUser.subscribe = req.body.subscribe
         newUser.save(function(err, result) {
             if (err) {
+                console.log(err);
                 return done(err);
             }
             return done(null, newUser);
