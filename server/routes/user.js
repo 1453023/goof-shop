@@ -4,8 +4,9 @@ var db = require('../models'),
 exports.login = function(req, res) {
     // req.flash('err', 'Invalid username or password.');
     console.log(req.flash());
+    var messages = req.flash('error');
     // if (req.flash())
-    res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: req.flash('error'), csrfToken: req.csrfToken() });
+    res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: messages, csrfToken: req.csrfToken() });
     // else
     //     res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: "", csrfToken: req.csrfToken() });
 }
