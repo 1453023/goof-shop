@@ -20,6 +20,7 @@ var express = require('express'),
     fs = require('fs'),
     loki = require('lokijs'),
     multer = require('multer'),
+    sessionCart = require('connect-session-sequelize')(session.Store),
     // uploads = multer({ dest: 'uploads/' }),
 
     routes = require('./routes'),
@@ -37,31 +38,6 @@ app.engine('pug', cons.pug);
 // set default ext. pug
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '../assets/views'));
-
-function dirTree(filename) {
-    var stats = fs.lstatSync(filename),
-        info = {
-            path: filename,
-            name: path.basename(filename)
-        };
-
-    if (stats.isDirectory()) {
-        info.type = "folder";
-        info.children = fs.readdirSync(filename).map(function(child) {
-            // stats = fs.lstatSync(filename + '\\' + child);
-            return dirTree(filename + '\\' + child);
-        });
-    } else {
-        // Assuming it's a file. In real life it could be a symlink or
-        // something else!
-        info.type = "file";
-    }
-
-    return info;
-}
-// var img_path = path.join(__dirname, '../public/img');
-// var img_list = dirTree(img_path);
-var sessionCart = require('connect-session-sequelize')(session.Store);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
