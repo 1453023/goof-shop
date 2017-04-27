@@ -74,10 +74,10 @@ exports.add_cart = function(req, res, next) {
 
 exports.checkout = function(req, res) {
     if (!req.session.cart) {
-        return res.render('pages/shopping_cart', { products: null });
+        return res.render('pages/checkout', { products: null });
     }
     var cart = new Cart(req.session.cart);
-    res.render('pages/shopping_cart', { totalPrice: cart.totalPrice });
+    res.render('pages/checkout', { totalPrice: cart.totalPrice });
 }
 
 exports.contacts = function(req, res) {
