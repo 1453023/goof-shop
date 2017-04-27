@@ -105,16 +105,17 @@ app.get('/login', csrfProtection, user.login);
 app.post('/authenticate',
     passport.authenticate('local.login', {
         successRedirect: '/shop_men',
-        failureFlash: 'Invalid Email or Password',
+        failureFlash: true,
         failureRedirect: '/login'
     }));
 app.get('/logout', application.destroySession);
 app.get('/account', application.IsAuthenticated, main.account);
-app.post('/register', passport.authenticate('local.register', {
-    successRedirect: '/shop_men',
-    failureFlash: true,
-    failureRedirect: '/login'
-}));
+app.post('/register',
+    passport.authenticate('local.register', {
+        successRedirect: '/shop_men',
+        failureFlash: true,
+        failureRedirect: '/login'
+    }));
 
 
 app.get('/admin', admin.authenticate);
