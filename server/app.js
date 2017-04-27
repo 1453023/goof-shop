@@ -59,8 +59,9 @@ function dirTree(filename) {
 
     return info;
 }
-var img_path = path.join(__dirname, '../public/img');
+// var img_path = path.join(__dirname, '../public/img');
 // var img_list = dirTree(img_path);
+var sessionCart = require('connect-session-sequelize')(session.Store);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -75,9 +76,21 @@ app.use(cors());
 // session
 app.use(session({
     secret: 'goatjsformakebettersecurity',
-    // resave: false,
-    // saveUninitialized: false
+    store: new sequelizeCart({
+        db: db,
+        checkExpirationInterval: 15 * 60 * 1000, // The interval at which to cleanup expired sessions in milliseconds.
+        expiration: 180 * 60 * 1000 // The maximum age (in milliseconds) of a valid session.
+    }),
+    resave: false,
+    proxy: true,
+    saveUninitialized: false
 }));
+// sessionCart.sync()
+app.use(function(req, res, next) {
+    res.locals.session = req.session;
+    next();
+});
+
 require('./config/passport');
 
 app.use(helmet());
@@ -99,6 +112,7 @@ app.get('/shop_men', main.shop_men);
 app.get('/contacts', main.contacts);
 app.get('/shopping_cart', main.cart);
 app.get('/product_detail/:id', main.product_detail);
+app.get('/add_cart/:id', main.add_cart);
 
 app.get('/login', csrfProtection, user.login);
 // app.post('/account/update', application.IsAuthenticated, user.update);

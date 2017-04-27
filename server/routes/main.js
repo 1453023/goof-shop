@@ -38,6 +38,46 @@ exports.cart = function(req, res) {
     })
 }
 
+function Cart(oldCart) {
+    this.items = oldCart.items || {};
+    this.totalQty = oldCart.totalQty || 0;
+    this.totalPrice = oldCart.totalPrice || 0;
+
+    this.add = function(item, id) {
+        var storedItem = this.items[id];
+        if (!storedItem) {
+            storedItem = this.items[id] = { item: item, qty: 0, price: 0 };
+        }
+        storedItem.qty++;
+        storedItem.price = storedItem.item.price * storedItem.qty;
+        this.totalQty++;
+        this.totalPrice += storedItem.item.price;
+    };
+
+    this.generateArray = function() {
+        var arr = [];
+        for (var id in this.items) {
+            arr.push(this.items[id]);
+        }
+        return arr;
+    };
+}
+
+exports.add_cart = function(req, res, next) {
+    var productId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+    db.products.findById(productId, function(err, product) {
+        if (err) {
+            return res.redirect('/shop_men');
+        }
+        cart.add(product, product.id);
+        req.session.cart = cart;
+        console.log(req.session.cart);
+        res.redirect('/shop_men');
+    });
+}
+
 exports.contacts = function(req, res) {
     if (req.user) {
         res.render("pages/contacts", { user: req.user.email, title: "G-O-O-F / CONTACTS" });
