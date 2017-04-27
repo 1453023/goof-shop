@@ -69,6 +69,7 @@ exports.add_cart = function(req, res, next) {
 
     db.products.findById(productId, function(err, product) {
         if (err) {
+            console.log(err);
             return res.redirect('/shop_men');
         }
         cart.add(product, product.id);

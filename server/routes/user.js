@@ -12,28 +12,6 @@ exports.login = function(req, res) {
     //     res.render('pages/login', { title: 'G-O-O-F / LOGIN', error: "", csrfToken: req.csrfToken() });
 }
 
-// exports.register = function(req, res) {
-//     db.Accounts.find({ where: { email: req.body.email } }).then(function(user) {
-//         if (!user) {
-//             db.Accounts.create({
-//                 email: req.body.email,
-//                 password: req.body.password,
-//                 gender: req.body.gender,
-//                 region: req.body.region,
-//                 subscribe: req.body.subscribe
-//             }).error(function(err) {
-//                 console.log(err);
-//             });
-//         } else {
-//             req.flash('error', 'Email has already been used');
-//             res.redirect('/login');
-//         }
-//     });
-//     // return res.render("pages/shop", { user: req.user.email, title: 'G-O-O-F / MEN' })
-//     req.flash('error', 'You have been registered. You now can log on to your account.');
-//     res.redirect('/login');
-// };
-
 exports.update = function(req, res) {
 
     if (req.body.new_password = req.body.new_password_confirmation) {
