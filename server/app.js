@@ -20,7 +20,7 @@ var express = require('express'),
     fs = require('fs'),
     loki = require('lokijs'),
     multer = require('multer'),
-    sessionCart = require('connect-session-sequelize')(session.Store),
+    SequelizeStore = require('connect-session-sequelize')(session.Store),
     // uploads = multer({ dest: 'uploads/' }),
 
     routes = require('./routes'),
@@ -52,13 +52,12 @@ app.use(cors());
 // session
 app.use(session({
     secret: 'goatjsformakebettersecurity',
-    store: new sessionCart({
+    store: new SequelizeStore({
         db: db,
         checkExpirationInterval: 15 * 60 * 1000, // The interval at which to cleanup expired sessions in milliseconds.
         expiration: 180 * 60 * 1000 // The maximum age (in milliseconds) of a valid session.
     }),
     resave: false,
-    proxy: true,
     saveUninitialized: false
 }));
 // sessionCart.sync()
