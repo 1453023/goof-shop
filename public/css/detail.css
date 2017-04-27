@@ -170,8 +170,8 @@ option {
 
 a.continue:link,
 a.continue:visited {
+    margin-top: 30px;
     text-decoration: none;
-    letter-spacing: -.015em;
     font-size: .75em;
     padding: 1em;
     color: #fff;
@@ -179,7 +179,7 @@ a.continue:visited {
     font-weight: bold;
     border: 1px solid #222;
     border-radius: 0px;
-    float: right;
+    float: left;
     text-align: right;
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;

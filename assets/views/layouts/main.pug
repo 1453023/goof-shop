@@ -34,10 +34,10 @@ block content
     h2 Shopping bag
     if session.cart
       ul.cd-cart-items
-        each item in session.cart
+        each item in session.cart.items
           li
-            span.cd-qty= session.cart.qty + ' x ' + session.cart.items.name
-            .cd-price= session.cart.price
+            span.cd-qty= item.qty + ' x ' + item.item.name
+            .cd-price= item.price
             a.cd-item-remove.cd-img-replace(href='#0')
               i.fa.fa-times
       .cd-cart-total
