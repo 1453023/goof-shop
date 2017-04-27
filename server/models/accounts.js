@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
                     if (isMatch) {
                         return done(null, user)
                     } else {
-                        return done(null, false)
+                        return done(null, false, { message: 'Invalid Email or Password.' })
                     }
                 });
             }

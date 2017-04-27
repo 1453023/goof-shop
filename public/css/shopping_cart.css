@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
 html,
 body,
-p,
 {
     margin: 0;
     padding: 0;
@@ -302,7 +301,7 @@ a.remove {
     font-size: .75em;
     display: inline-block;
     border-radius: 100%;
-    line-height: 15;
+    line-height: 1;
     -webkit-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
     -ms-transition: all 0.25s linear;
@@ -449,6 +448,10 @@ table {
 table tr td {
     padding-bottom: 20px;
     border-bottom: 1px solid #222;
+}
+
+table tr td p {
+    margin: 0;
 }
 
 table tr:last-child td {

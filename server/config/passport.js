@@ -15,6 +15,52 @@ passport.deserializeUser(function(user, done) {
     });
 });
 
+passport.use('local.register', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+}, function(req, email, password, done) {
+    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
+    req.checkBody('password', 'Invalid password').notEmpty().isLength({ min: 8 });
+    var errors = req.validationErrors();
+    if (errors) {
+        var messages = [];
+        errors.forEach(function(error) {
+            messages.push(error.msg);
+        });
+        return done(null, false, req.flash('error', messages));
+    }
+    db.Accounts.find({ 'email': email }, function(err, user) {
+        if (err) {
+            return done(err);
+        }
+        if (user) {
+            return done(null, false, { message: 'Email is already in use.' });
+        }
+        var newUser = new db.Accounts();
+        newUser.email = email;
+        newUser.password = req.body.password;
+        newUser.gender = req.body.gender
+        newUser.region = req.body.region;
+        newUser.subscribe = req.body.subscribe
+        newUser.save(function(err, result) {
+            if (err) {
+                return done(err);
+            }
+            return done(null, newUser);
+        });
+        // db.Accounts.create({
+        //     email: req.body.email,
+        //     password: req.body.password,
+        //     gender: req.body.gender,
+        //     region: req.body.region,
+        //     subscribe: req.body.subscribe
+        // }).error(function(err) {
+        //     return done(err);
+        // });
+        // return done(null, newUser);
+    });
+}));
 
 passport.use('local.login', new LocalStrategy({
     usernameField: 'email',
@@ -22,6 +68,16 @@ passport.use('local.login', new LocalStrategy({
     passReqToCallback: true
 }, function(req, email, password, done) {
     // var models = require('../models/index');
+    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
+    req.checkBody('password', 'Invalid password').notEmpty();
+    var errors = req.validationErrors();
+    if (errors) {
+        var messages = [];
+        errors.forEach(function(error) {
+            messages.push(error.msg);
+        });
+        return done(null, false, req.flash('error', messages));
+    }
     db.Accounts.find({
         where: { email: email, $and: { email: { $notILike: "admin%" } } }
     }).then(function(user) {
@@ -36,6 +92,16 @@ passport.use('local.admin', new LocalStrategy({
     passReqToCallback: true
 }, function(req, email, password, done) {
     // var models = require('../models/index');
+    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
+    req.checkBody('password', 'Invalid password').notEmpty();
+    var errors = req.validationErrors();
+    if (errors) {
+        var messages = [];
+        errors.forEach(function(error) {
+            messages.push(error.msg);
+        });
+        return done(null, false, req.flash('error', messages));
+    }
     db.Accounts.find({ where: { email: email, $and: { email: { $iLike: "admin%" } } } }).then(function(user) {
         passwd = user ? user.password : ''
         isMatch = db.Accounts.validPassword(password, passwd, done, user)

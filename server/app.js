@@ -11,7 +11,6 @@ var express = require('express'),
     sequelize = require('sequelize'),
     flash = require('connect-flash'),
     passport = require('passport'),
-    passportConfig = require('./config/passport'),
     helmet = require('helmet'),
     csrf = require('csurf'),
     csrfProtection = csrf({ cookie: true }),
@@ -77,6 +76,7 @@ app.use(session({
     // resave: false,
     // saveUninitialized: false
 }));
+require('./config/passport');
 
 app.use(helmet());
 app.use(function(req, res, next) {
@@ -108,7 +108,11 @@ app.post('/authenticate',
     }));
 app.get('/logout', application.destroySession);
 app.get('/account', application.IsAuthenticated, main.account);
-app.post('/register', user.register);
+app.post('/register', passport.authenticate('local.register', {
+    successRedirect: '/shop_men',
+    failureFlash: true,
+    failureRedirect: '/login'
+}));
 
 
 app.get('/admin', admin.authenticate);
