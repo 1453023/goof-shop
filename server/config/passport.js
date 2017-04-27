@@ -38,32 +38,15 @@ passport.use('local.register', new LocalStrategy({
         if (user) {
             return done(null, false, { message: 'Email is already in use.' });
         }
-        var newUser = new db.Accounts();
-        newUser.email = email;
-        newUser.password = req.body.password;
-        newUser.gender = req.body.gender
-        newUser.region = req.body.region;
-        newUser.subscribe = req.body.subscribe
-        newUser.save(function(err, result) {
-            if (err) {
-                console.log(err);
-                return done(err);
-            }
-            return done(null, newUser);
-        });
-        // db.Accounts.create({
-        //     email: req.body.email,
-        //     password: req.body.password,
-        //     gender: req.body.gender,
-        //     region: req.body.region,
-        //     subscribe: req.body.subscribe
-        // }).then(function(err, user) {
-        //     if (err) {
-        //         console.log(err);
-        //         return done(err);
-        //     }
-        //     return done(null, user);
-        // })
+        db.Accounts.create({
+            email: req.body.email,
+            password: req.body.password,
+            gender: req.body.gender,
+            region: req.body.region,
+            subscribe: req.body.subscribe
+        }).then(function(user) {
+            console.log(user)
+        })
     });
 }));
 

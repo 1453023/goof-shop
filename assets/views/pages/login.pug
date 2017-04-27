@@ -15,8 +15,9 @@ block main
             |  
             input#input-password.form-control(type='password', name='password', required='')
           |
-          div.error-block
-            p= error
+          if (hasErrors)
+            div.error-block
+              p= messages
           input(type='hidden', value= csrfToken, name='_csrf')
           a#forget-psw(href='#') Forgot Password?
           |  
