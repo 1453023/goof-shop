@@ -669,6 +669,8 @@ a {
   .goof-form label {
     font-size: 0.7em;
     font-weight: normal; }
+    .goof-form label.error {
+      color: red; }
   .goof-form input {
     border-color: #222;
     border-radius: 0px;

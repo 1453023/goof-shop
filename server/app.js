@@ -1,6 +1,7 @@
 var express = require('express'),
     session = require('express-session'),
     path = require('path'),
+    validator = require('express-validator'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
@@ -66,6 +67,7 @@ var img_path = path.join(__dirname, '../public/img');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(validator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(cors());
@@ -146,4 +148,5 @@ app.use(function(err, req, res, next) {
 
 
 
+module.exports = app;
 module.exports = app;

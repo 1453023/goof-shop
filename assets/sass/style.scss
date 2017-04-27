@@ -864,6 +864,9 @@ a {
     label {
         font-size: 0.7em;
         font-weight: normal;
+        &.error {
+            color: red;
+        }
     }
     input {
         border-color: $primary-color;
