@@ -45,7 +45,8 @@ passport.use('local.register', new LocalStrategy({
             region: req.body.region,
             subscribe: req.body.subscribe
         }).then(function(user) {
-            console.log(user)
+            console.log(user);
+            return done(null, user)
         })
     });
 }));
