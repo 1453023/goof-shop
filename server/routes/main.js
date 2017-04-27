@@ -132,13 +132,18 @@ exports.account = function(req, res) {
 // }
 
 exports.search = function(req, res) {
-    q = "";
-    users = [];
+    var q = "";
     if (req.query.q) {
         q = req.query.q;
-        db.products.findAll({ attributes: ['id', 'username'], where: { username: { like: '%' + req.query.q + '%' } } }).success(function(products) {
-            //console.log('Users:', users)
-            // res.render("/shop_men", { q: q, username: req.user.username, users: users });
+        db.products.findAll({
+            attributes: ['name', 'category'],
+            where: {
+                $or: [
+                    { name: { like: '%' + req.query.q + '%' } },
+                    { category: { like: '%' + req.query.q + '%' } }
+                ]
+            }
+        }).then(function(products) {
             if (req.user) {
                 res.render("pages/shop", { user: req.user.email, products: products, title: 'G-O-O-F / MEN' });
             } else {
@@ -156,4 +161,14 @@ exports.search = function(req, res) {
         });
     }
     //res.render("search.ejs", { q: q, username: req.user.username, users: users })
+}
+exports.search_category = function(req, res) {
+    db.products.findAll({ where: { category: req.params.category } }).then(function(products) {
+        //console.log('Users:', users)
+        if (req.user) {
+            res.render("pages/shop", { user: req.user.email, products: products, title: 'G-O-O-F / MEN' });
+        } else {
+            res.render("pages/shop", { user: "", products: products, title: 'G-O-O-F / MEN' });
+        }
+    });
 }

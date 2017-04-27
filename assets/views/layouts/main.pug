@@ -7,11 +7,12 @@ block content
         a.navbar-brand(href='/') G O O F
       ul.nav.navbar-nav.pull-right
         li
-          input.search-btn.fa.ib-m(type='submit', value='')
-          .search-slide.ib-m
-            input.ib-m(type='text', placeholder='Enter your search')
-            .search-close.ib-m
-              i.fa.fa-times(aria-hidden='true')
+          form#form-search(action="/search", method="get", role="form")
+            input.search-btn.fa.ib-m(type='submit', value='')
+            .search-slide.ib-m
+              input.ib-m(type='text', placeholder='Enter your search', name='q')
+              .search-close.ib-m
+                i.fa.fa-times(aria-hidden='true')
         li.bag-count
           a#cd-cart-trigger(href='#')
             if session.cart

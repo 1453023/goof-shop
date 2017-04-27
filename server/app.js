@@ -84,6 +84,7 @@ app.use(passport.session());
 //routes 
 app.get('/', routes.index);
 app.get('/shop_men', main.shop_men);
+app.get('shop_men/:category', main.search_category);
 app.get('/contacts', main.contacts);
 app.get('/shopping_cart', main.cart);
 app.get('/product_detail/:id', main.product_detail);
