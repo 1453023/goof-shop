@@ -67,11 +67,7 @@ exports.add_cart = function(req, res, next) {
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
 
-    db.products.findById(productId, function(err, product) {
-        if (err) {
-            console.log(err);
-            return res.redirect('/shop_men');
-        }
+    db.products.findById(productId).then(function(product) {
         cart.add(product, product.id);
         req.session.cart = cart;
         console.log(req.session.cart);
