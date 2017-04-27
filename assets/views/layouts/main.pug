@@ -41,19 +41,17 @@ block content
         each item in session.cart.items
           li
             img.bag-preview(src= item.item.smImgUrl[0])
-            span.cd-qty= item.qty + ' x ' + item.item.name
-            br
-            span.cd-price= item.price
+            span.cd-qty= item.qty + ' x ' + item.item.name + br + item.price
             a.cd-item-remove.cd-img-replace(href='#0')
               i.fa.fa-times
       .cd-cart-total
         p SUBTOTAL
           span= session.cart.totalPrice
+      a.checkout-btn(href='/checkout') Checkout
+      p.cd-go-to-cart
+        a(href='/shopping_cart') Go to bag detail
     else
       h1.text-center Your cart is empty
-    a.checkout-btn(href='#0') Checkout
-    p.cd-go-to-cart
-      a(href='/shopping_cart') Go to bag detail
   .container-fluid.goof-container
     .col-md-2.col-sm-2
       .navToggle

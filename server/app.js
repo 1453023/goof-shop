@@ -88,6 +88,7 @@ app.get('/contacts', main.contacts);
 app.get('/shopping_cart', main.cart);
 app.get('/product_detail/:id', main.product_detail);
 app.get('/add_cart/:id', main.add_cart);
+app.get('checkout', main.checkout);
 
 app.get('/login', csrfProtection, user.login);
 // app.post('/account/update', application.IsAuthenticated, user.update);

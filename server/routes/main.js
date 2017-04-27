@@ -28,14 +28,6 @@ exports.product_detail = function(req, res) {
 }
 
 exports.cart = function(req, res) {
-    // db.cart.findAll({ include: [db.products] }).then(function(cart) {
-    //     req.session.cart = cart
-    //     if (req.user) {
-    //         res.render("pages/shoping_cart", { user: req.user.email, cart: cart, title: 'G-O-O-F / CART' });
-    //     } else {
-    //         res.render("pages/shopping_cart", { user: "", cart: cart, title: 'G-O-O-F / CART' });
-    //     }
-    // })
     if (!req.session.cart) {
         return res.render('pages/shopping_cart', { products: null });
     }
@@ -54,9 +46,9 @@ function Cart(oldCart) {
             storedItem = this.items[id] = { item: item, qty: 0, price: 0 };
         }
         storedItem.qty++;
-        storedItem.price = storedItem.item.price * storedItem.qty;
+        storedItem.price = parseInt(storedItem.item.price) * storedItem.qty;
         this.totalQty++;
-        this.totalPrice += storedItem.item.price;
+        this.totalPrice += parseInt(storedItem.item.price);
     };
 
     this.generateArray = function() {
@@ -78,6 +70,14 @@ exports.add_cart = function(req, res, next) {
         console.log(req.session.cart);
         res.redirect('/shop_men');
     });
+}
+
+exports.checkout = function(req, res) {
+    if (!req.session.cart) {
+        return res.render('pages/shopping_cart', { products: null });
+    }
+    var cart = new Cart(req.session.cart);
+    res.render('pages/shopping_cart', { totalPrice: cart.totalPrice });
 }
 
 exports.contacts = function(req, res) {
